@@ -2,39 +2,50 @@
 
 
 
-# [Project Name] 🎯
+# FLYBULB™ 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: EvAnn
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Ann Maria Johny - Sahrdaya College of Engineering and Technology
+- Member 2: Eva Rose Nellissery - Sahrdaya College of Engineering and Technology
 
 ### Project Description
-[2-3 lines about what your project does]
+**FLYBULB™** is a fictional online service platform designed to provide professional illumination services for fireflies.
+Users can explore and purchase services such as **bulb replacement, brightness adjustment, and color change**, all through a playful and interactive web experience designed around the idea of giving every firefly the glow it deserves.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+What happens when your firefly's glow is just... not glowing enough?
+Humans have access to bulbs, lamps, LEDs, smart lighting and endless lighting solutions. But what about fireflies?
+A firefly might wake up one day and think:
+> "My glow is looking a little dim today."
+Unfortunately, there is no dedicated online platform for solving this extremely serious crisis.
+**FLYBULB™ exists to solve this completely unnecessary problem.**
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+FLYBULB™ provides a fictional online service platform where firefly owners can:
+
+- Replace their firefly's bulb.
+- Adjust the brightness of its glow.
+- Change the color of its illumination.
+- Explore different service packages and pricing.
+- Navigate through a complete service-oriented web platform.
+- 
+Because apparently, even fireflies deserve premium lighting services.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
-
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- **HTML5** - Structure and content of the website
+- **CSS3** - Styling, responsive layouts, animations and visual effects
+- **JavaScript** - Interactions, form functionality, password visibility and dynamic website behaviour
+- **Visual Studio Code** - Development environment
+- **Git & GitHub** - Version control and project collaboration
+- **MP4 Video Assets** - Firefly animations and visual elements
+- **PNG Image Assets** - FLYBULB™ branding and firefly logo
 
 ### Implementation
 For Software:
