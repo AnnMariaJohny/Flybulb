@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FLYBULB™ | Professional Firefly Illumination Services</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+
+         NAVIGATION BAR
+
+    ===================================================== -->
+
+    <nav class="navbar">
+
+        <div class="navbar-logo">FLYBULB™</div>
+
+        <div class="navbar-links">
+
+            <a href="#services" class="nav-back" onclick="showServices(); return false;">← Back to Services</a>
+
+            <a href="../../../FLYBULB/FLYBULB/assets/index.html" class="nav-home">Home</a>
+
+            <a href="../../../about.html">About</a>
+
+            <span class="nav-icon">♡</span>
+
+            <span class="nav-icon">♟</span>
+
+        </div>
+
+    </nav>
+
+<!-- =====================================================
+
+     FLYBULB — WELCOME + LOGIN
+
+====================================================== -->
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+    /* =====================================================
+
+       COMMON
+
+    ====================================================== */
+
+    #welcomePage,
+
+    #loginPage {
+
+        font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+
+        box-sizing: border-box;
+
+    }
+
+    #welcomePage *,
+
+    #loginPage * {
+
+        box-sizing: border-box;
+
+    }
+
+    /* =====================================================
+
+       WELCOME PAGE
+
+    ====================================================== */
+
+    #welcomePage {
+
+        min-height: 100vh;
+
+        width: 100%;
+
+        background:
+
+            radial-gradient(
+
+                circle at 25% 50%,
+
+                rgba(255, 211, 78, 0.06),
+
+                transparent 35%
+
+            ),
+
+            #08233d;
+
+        color: white;
+
+        overflow: hidden;
+
+    }
+
+    /* =====================================================
+
+       WELCOME WRAPPER
+
+    ====================================================== */
+
+    .welcome-wrapper {
+
+        width: 100%;
+
+        min-height: 100vh;
+
+        display: grid;
+
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+
+        align-items: center;
+
+        padding: 60px 7%;
+
+        gap: 55px;
+
+    }
+
+    /* =====================================================
+
+       RIGHT — VIDEO
+
+    ====================================================== */
+
+    .welcome-video-section {
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        grid-column: 2;
+
+        grid-row: 1;
+
+        justify-self: end;
+
+    }
+
+    .video-container {
+
+        width: min(100%, 500px);
+
+        height: 570px;
+
+        overflow: hidden;
+
+        border-radius: 28px;
+
+        border: 1.5px solid rgba(255, 211, 78, 0.55);
+
+        background: #061b31;
+
+        box-shadow:
+
+            0 20px 60px rgba(0, 0, 0, 0.35),
+
+            0 0 45px rgba(255, 211, 78, 0.12);
+
+    }
+
+    .welcome-video {
+
+        width: 100%;
+
+        height: 100%;
+
+        display: block;
+
+        object-fit: cover;
+
+    }
+
+    /* =====================================================
+
+       LEFT — CONTENT
+
+    ====================================================== */
+
+    .welcome-content {
+
+        width: 100%;
+
+        max-width: 620px;
+
+        padding: 0;
+
+        grid-column: 1;
+
+        grid-row: 1;
+
+    }
+
+    /* =====================================================
+
+       COMPANY NAME
+
+    ====================================================== */
+
+    .company-name {
+
+        display: inline-block;
+
+        font-size: 28px;
+
+        font-weight: 800;
+
+        letter-spacing: 1px;
+
+        color: #ffd34e;
+
+        margin-bottom: 28px;
+
+    }
+
+    .company-name span {
+
+        font-size: 10px;
+
+        vertical-align: super;
+
+        margin-left: 2px;
+
+    }
+
+    /* =====================================================
+
+       WELCOME LABEL
+
+    ====================================================== */
+
+    .welcome-label {
+
+        display: inline-block;
+
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 29px;
+
+        font-weight: 600;
+
+        font-style: italic;
+
+        letter-spacing: 1.2px;
+
+        color: #f5f5f5;
+
+        margin-bottom: 6px;
+
+    }
+
+    /* =====================================================
+
+       MAIN HEADING
+
+    ====================================================== */
+
+    .welcome-content h1 {
+
+        margin: 0 0 10px;
+
+        font-size: clamp(48px, 5vw, 68px);
+
+        line-height: 0.98;
+
+        font-weight: 900;
+
+        letter-spacing: -1.5px;
+
+        color: #ffffff;
+
+    }
+
+    .welcome-content h1 span {
+
+        color: #ffd34e;
+
+    }
+
+    /* =====================================================
+
+       SUB HEADING
+
+    ====================================================== */
+
+    .welcome-content h2 {
+
+        margin: 0 0 24px;
+
+        font-family: "Cormorant Garamond", serif;
+
+        font-size: 30px;
+
+        line-height: 1.15;
+
+        font-weight: 600;
+
+        font-style: italic;
+
+        letter-spacing: 0.2px;
+
+        color: #f3f3f3;
+
+    }
+
+    /* =====================================================
+
+       DESCRIPTION
+
+    ====================================================== */
+
+    .welcome-text {
+
+        margin: 0 0 8px;
+
+        max-width: 500px;
+
+        font-size: 15px;
+
+        line-height: 1.6;
+
+        color: #8fb5d9;
+
+    }
+
+    .welcome-subtext {
+
+        margin: 0 0 25px;
+
+        max-width: 500px;
+
+        font-size: 15px;
+
+        line-height: 1.55;
+
+        color: #dce9f5;
+
+    }
+
+    /* =====================================================
+
+       ACCOUNT
+
+    ====================================================== */
+
+    .account-box {
+
+        margin-top: 5px;
+
+    }
+
+    .account-box > p {
+
+        margin: 0 0 14px;
+
+        font-size: 15px;
+
+        font-weight: 700;
+
+        color: #ffffff;
+
+    }
+
+    .account-buttons {
+
+        display: flex;
+
+        gap: 14px;
+
+        align-items: center;
+
+    }
+
+    /* =====================================================
+
+       WELCOME BUTTONS
+
+    ====================================================== */
+
+    .welcome-btn {
+
+        min-width: 140px;
+
+        padding: 13px 28px;
+
+        border-radius: 30px;
+
+        font-family: inherit;
+
+        font-size: 15px;
+
+        font-weight: 800;
+
+        cursor: pointer;
+
+        transition:
+
+            transform 0.25s ease,
+
+            box-shadow 0.25s ease,
+
+            background 0.25s ease;
+
+    }
+
+    .login-button {
+
+        border: 2px solid #ffd34e;
+
+        background: #ffd34e;
+
+        color: #08233d;
+
+        box-shadow: 0 8px 20px rgba(255, 211, 78, 0.12);
+
+    }
+
+    .register-button {
+
+        border: 2px solid #ffd34e;
+
+        background: #ffffff;
+
+        color: #d0a514;
+
+    }
+
+    .welcome-btn:hover {
+
+        transform: translateY(-3px);
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    }
+
+    /* =====================================================
+
+       LOGIN PAGE
+
+    ====================================================== */
+
+    #loginPage {
+
+        min-height: 100vh;
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        padding: 40px 20px;
+
+        background:
+
+            radial-gradient(
+
+                circle at top right,
+
+                rgba(255, 211, 78, 0.08),
+
+                transparent 35%
+
+            ),
+
+            #08233d;
+
+        color: white;
+
+    }
+
+    /* =====================================================
+
+       LOGIN CARD
+
+    ====================================================== */
+
+    .form-card {
+
+        width: 100%;
+
+        max-width: 450px;
+
+        padding: 42px;
+
+        border-radius: 28px;
+
+        background: rgba(10, 40, 67, 0.96);
+
+        border: 1px solid rgba(255, 211, 78, 0.35);
+
+        box-shadow:
+
+            0 25px 70px rgba(0, 0, 0, 0.35),
+
+            0 0 30px rgba(255, 211, 78, 0.05);
+
+        text-align: center;
+
+    }
+
+    /* =====================================================
+
+       LOGIN LOGO
+
+    ====================================================== */
+
+    .form-logo {
+
+        color: #ffd34e;
+
+        font-size: 24px;
+
+        font-weight: 900;
+
+        letter-spacing: 1px;
+
+        margin-bottom: 22px;
+
+    }
+
+    /* =====================================================
+
+       LOGIN TITLE
+
+    ====================================================== */
+
+    .form-card h1 {
+
+        margin: 0 0 10px;
+
+        font-size: 32px;
+
+        font-weight: 800;
+
+        color: #ffffff;
+
+    }
+
+    .form-subtitle {
+
+        margin: 0 0 30px;
+
+        color: #8fb5d9;
+
+        font-size: 15px;
+
+        line-height: 1.6;
+
+    }
+
+    /* =====================================================
+
+       INPUT GROUP
+
+    ====================================================== */
+
+    .input-group {
+
+        text-align: left;
+
+        margin-bottom: 18px;
+
+    }
+
+    .input-group label {
+
+        display: block;
+
+        margin-bottom: 7px;
+
+        font-size: 14px;
+
+        font-weight: 700;
+
+        color: #ffffff;
+
+    }
+
+    .input-group input {
+
+        width: 100%;
+
+        padding: 14px 16px;
+
+        border-radius: 12px;
+
+        border: 1px solid rgba(143, 181, 217, 0.35);
+
+        outline: none;
+
+        background: #0d2d49;
+
+        color: #ffd34e;
+
+        -webkit-text-fill-color: #ffd34e;
+
+        font-family: inherit;
+
+        font-size: 14px;
+
+        transition: 0.25s ease;
+
+    }
+
+    .input-group input::placeholder {
+
+        color: #7293b0;
+
+    }
+
+    .input-group input:focus {
+
+        border-color: #ffd34e;
+
+        box-shadow: 0 0 0 3px rgba(255, 211, 78, 0.08);
+
+    }
+
+    /* =====================================================
+
+       LOGIN FORM BUTTON
+
+    ====================================================== */
+
+    .form-button {
+
+        width: 100%;
+
+        padding: 14px 20px;
+
+        margin-top: 8px;
+
+        border: none;
+
+        border-radius: 14px;
+
+        background: #ffd34e;
+
+        color: #08233d;
+
+        font-family: inherit;
+
+        font-size: 15px;
+
+        font-weight: 800;
+
+        cursor: pointer;
+
+        transition: 0.25s ease;
+
+    }
+
+    .form-button:hover {
+
+        transform: translateY(-2px);
+
+        box-shadow: 0 10px 25px rgba(255, 211, 78, 0.15);
+
+    }
+
+    /* =====================================================
+
+       REGISTER SWITCH
+
+    ====================================================== */
+
+    .switch-text {
+
+        margin: 22px 0 15px;
+
+        color: #8fb5d9;
+
+        font-size: 14px;
+
+    }
+
+    .switch-text button {
+
+        border: none;
+
+        background: none;
+
+        color: #ffd34e;
+
+        font-family: inherit;
+
+        font-size: 14px;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+    }
+
+    /* =====================================================
+
+       BACK BUTTON
+
+    ====================================================== */
+
+    .back-button {
+
+        border: none;
+
+        background: transparent;
+
+        color: #8fb5d9;
+
+        font-family: inherit;
+
+        font-size: 14px;
+
+        cursor: pointer;
+
+        transition: 0.2s ease;
+
+    }
+
+    .back-button:hover {
+
+        color: #ffd34e;
+
+    }
+
+    /* =====================================================
+
+       MOBILE
+
+    ====================================================== */
+
+    @media (max-width: 900px) {
+
+        .welcome-wrapper {
+
+            grid-template-columns: 1fr;
+
+            min-height: auto;
+
+            padding: 50px 7%;
+
+            gap: 45px;
+
+        }
+
+        .welcome-content {
+
+            order: 1;
+
+            grid-column: 1;
+
+            grid-row: 1;
+
+            max-width: 650px;
+
+            margin: auto;
+
+        }
+
+        .welcome-video-section {
+
+            order: 2;
+
+            grid-column: 1;
+
+            grid-row: 2;
+
+        }
+
+        .video-container {
+
+            width: min(100%, 480px);
+
+            height: 450px;
+
+        }
+
+    }
+
+    /* =====================================================
+
+       IPHONE 13 / SMALL MOBILE
+
+    ====================================================== */
+
+    @media (max-width: 500px) {
+
+        #welcomePage {
+
+            overflow: visible;
+
+        }
+
+        .welcome-wrapper {
+
+            padding: 35px 20px 50px;
+
+            gap: 35px;
+
+        }
+
+        .video-container {
+
+            height: 350px;
+
+            border-radius: 22px;
+
+        }
+
+        .company-name {
+
+            font-size: 20px;
+
+            margin-bottom: 25px;
+
+        }
+
+        .welcome-label {
+
+            font-size: 25px;
+
+            margin-bottom: 14px;
+
+        }
+
+        .welcome-content h1 {
+
+            font-size: 48px;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 22px;
+
+        }
+
+        .welcome-content h2 {
+
+            font-size: 21px;
+
+            margin-bottom: 18px;
+
+        }
+
+        .welcome-text {
+
+            font-size: 15px;
+
+        }
+
+        .welcome-label {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 25px;
+
+            font-style: italic;
+
+        }
+
+        .welcome-content h1 {
+
+            font-size: 48px;
+
+        }
+
+        .welcome-content h2 {
+
+            font-size: 28px;
+
+        }
+
+        .welcome-subtext {
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+
+        }
+
+        .account-buttons {
+
+            flex-direction: column;
+
+            width: 100%;
+
+        }
+
+        .welcome-btn {
+
+            width: 100%;
+
+        }
+
+        .form-card {
+
+            padding: 30px 22px;
+
+            border-radius: 22px;
+
+        }
+
+        .form-card h1 {
+
+            font-size: 28px;
+
+        }
+
+    }
+
+</style>
+
+<!-- =====================================================
+
+     WELCOME PAGE
+
+====================================================== -->
+
+<section id="welcomePage" class="page">
+
+    <div class="welcome-wrapper">
+
+        <!-- =================================================
+
+             RIGHT SIDE — FIREFLY VIDEO
+
+        ================================================== -->
+
+        <div class="welcome-video-section">
+
+            <div class="video-container">
+
+                <video
+
+                    class="welcome-video"
+
+                    autoplay
+
+                    muted
+
+                    loop
+
+                    playsinline
+
+                    preload="metadata"
+
+                >
+
+                    <source
+
+                        src="A%20cute%20firefly%20flies%20smoothly%20to%20the%20opposite%20side%20of%20the%20scene,%20then%20turns%20toward%20the%20viewer,%20waves%20with%20its%20hands%20in%20a%20friendly%20way%20to%20say%20%E2%80%9Chi,%E2%80%9D%20and%20makes%20an%20adorable%20warm%20smile..mp4"
+                        
+                        type="video/mp4"
+
+                    >
+
+                    Your browser does not support video.
+
+                </video>
+
+            </div>
+
+        </div>
+
+        <!-- =================================================
+
+             LEFT SIDE — WELCOME CONTENT
+
+        ================================================== -->
+
+        <div class="welcome-content">
+
+            <!-- COMPANY NAME -->
+
+            <div class="company-name">
+
+                FLYBULB<span>™</span>
+
+            </div>
+
+            <!-- WELCOME LABEL -->
+
+            <div class="welcome-label">
+
+                ✦ Welcome to
+
+            </div>
+
+            <!-- MAIN HEADING -->
+
+            <h1>
+
+                FLYBULB<span>™</span>
+
+            </h1>
+
+            <!-- SUB HEADING -->
+
+            <h2>
+
+                Light. Customize. Glow.
+
+            </h2>
+
+            <!-- DESCRIPTION -->
+
+            <p class="welcome-text">
+
+                Professional firefly illumination with
+
+                customizable brightness, colour, and patterns.
+
+            </p>
+
+            <!-- =================================================
+
+                 ACCOUNT BUTTONS
+
+            ================================================== -->
+
+            <div class="account-box">
+
+                <p>
+
+                    Do you have an account?
+
+                </p>
+
+                <div class="account-buttons">
+
+                    <button
+
+                        type="button"
+
+                        class="welcome-btn login-button"
+
+                        onclick="showLogin()"
+
+                    >
+
+                        Login →
+
+                    </button>
+
+                    <button
+
+                        type="button"
+
+                        class="welcome-btn register-button"
+
+                        onclick="showRegister()"
+
+                    >
+
+                        Register
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+
+     LOGIN PAGE
+
+====================================================== -->
+
+<section
+
+    id="loginPage"
+
+    class="form-page hidden"
+
+>
+
+    <div class="form-card">
+
+        <!-- LOGO -->
+
+        <div class="form-logo">
+
+            FLYBULB™
+
+        </div>
+
+        <!-- TITLE -->
+
+        <h1>
+
+            Welcome Back ✨
+
+        </h1>
+
+        <p class="form-subtitle">
+
+            Login to continue your
+
+            firefly journey.
+
+        </p>
+
+        <!-- NAME -->
+
+        <div class="input-group">
+
+            <label for="loginName">
+
+                Name
+
+            </label>
+
+            <input
+
+                type="text"
+
+                id="loginName"
+
+                placeholder="Enter your name"
+
+            >
+
+        </div>
+
+        <!-- ID -->
+
+        <div class="input-group">
+
+            <label for="loginId">
+
+                ID
+
+            </label>
+
+            <input
+
+                type="text"
+
+                id="loginId"
+
+                placeholder="Enter your ID"
+
+            >
+
+        </div>
+
+        <!-- PASSWORD -->
+
+        <div class="input-group">
+
+            <label for="loginPassword">
+
+                Password
+
+            </label>
+
+            <input
+
+                type="password"
+
+                id="loginPassword"
+
+                placeholder="Enter your password"
+
+            >
+
+        </div>
+
+        <!-- LOGIN -->
+
+        <button
+
+            type="button"
+
+            class="form-button"
+
+            onclick="loginUser()"
+
+        >
+
+            Login →
+
+        </button>
+
+        <!-- REGISTER -->
+
+        <p class="switch-text">
+
+            Don't have an account?
+
+            <button
+
+                type="button"
+
+                onclick="showRegister()"
+
+            >
+
+                Register now
+
+            </button>
+
+        </p>
+
+        <!-- BACK -->
+
+        <button
+
+            type="button"
+
+            class="back-button"
+
+            onclick="showWelcome()"
+
+        >
+
+            ← Back to Welcome
+
+        </button>
+
+    </div>
+
+    <div class="auth-logo-panel">
+
+        <img src="../../../Bulbreplacement/images/logo.png"
+         alt="FLYBULB Firefly logo">
+
+    </div>
+
+</section>
+
+    <!-- =====================================================
+
+         REGISTER PAGE
+
+    ====================================================== -->
+
+    <section
+
+        id="registerPage"
+
+        class="form-page hidden"
+
+    >
+
+        <div class="form-card">
+
+            <div class="form-logo">
+
+                FLYBULB™
+
+            </div>
+
+            <h1>
+
+                Create Account ✨
+
+            </h1>
+
+            <p class="form-subtitle">
+
+                Create your firefly account.
+
+            </p>
+
+            <!-- NAME -->
+
+            <div class="input-group">
+
+                <label for="registerName">
+
+                    Name
+
+                </label>
+
+                <input
+
+                    type="text"
+
+                    id="registerName"
+
+                    placeholder="Enter your name"
+
+                >
+
+            </div>
+
+            <!-- ID -->
+
+            <div class="input-group">
+
+                <label for="registerId">
+
+                    ID
+
+                </label>
+
+                <input
+
+                    type="text"
+
+                    id="registerId"
+
+                    placeholder="Create your ID"
+
+                >
+
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <label for="registerEmail">
+
+                    Email
+
+                </label>
+
+                <input
+
+                    type="email"
+
+                    id="registerEmail"
+
+                    placeholder="Enter your email"
+
+                >
+
+            </div>
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <label for="registerPassword">
+
+                    Password
+
+                </label>
+
+                <input
+
+                    type="password"
+
+                    id="registerPassword"
+
+                    placeholder="Create a password"
+
+                >
+
+            </div>
+
+            <!-- REGISTER -->
+
+            <button
+
+                class="form-button"
+
+                onclick="registerUser()"
+
+            >
+
+                Create Account ✨
+
+            </button>
+
+            <!-- LOGIN -->
+
+            <p class="switch-text">
+
+                Already have an account?
+
+                <button onclick="showLogin()">
+
+                    Login
+
+                </button>
+
+            </p>
+
+            <button
+
+                class="back-button"
+
+                onclick="showWelcome()"
+
+            >
+
+                ← Back to Welcome
+
+            </button>
+
+        </div>
+
+        <div class="auth-logo-panel">
+
+            <img src="../../../Bulbreplacement/images/logo.png"
+                 alt="FLYBULB Firefly logo">
+
+        </div>
+
+    </section>
+
+    <!-- =====================================================
+
+         MAIN WEBSITE AFTER LOGIN
+
+    ====================================================== -->
+
+    <section
+
+        id="websitePage"
+
+        class="hidden"
+
+    >
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="website-header">
+
+            <div class="website-logo">
+
+                FLYBULB<span>™</span>
+
+            </div>
+
+            <button
+
+                class="logout-btn"
+
+                onclick="logoutUser()"
+
+            >
+
+                Logout
+
+            </button>
+
+        </header>
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <main class="dashboard">
+
+            <!-- WELCOME USER -->
+
+            <div class="dashboard-welcome">
+
+                <small>
+
+                    ✨ FLYBULB™
+
+                </small>
+
+                <h1>
+
+                    Welcome,
+
+                    <span id="userName">
+
+                        Firefly Friend
+
+                    </span>
+
+                    👋
+
+                </h1>
+
+                <p>
+
+                    Your little firefly is ready
+
+                    for its perfect glow.
+
+                </p>
+
+                <img
+                    class="services-logo"
+                    src="../../../Bulbreplacement/images/logo.png"
+                    alt="FLYBULB Firefly logo"
+                >
+
+            </div>
+
+            <!-- =================================================
+
+                 SERVICES
+
+            ================================================== -->
+
+            <section id="services" class="services-section">
+
+                <div class="services-title">
+
+                    <h2>
+
+                        Our Services ✨
+
+                    </h2>
+
+                    <p>
+
+                        Choose what your firefly needs.
+
+                    </p>
+
+                </div>
+
+                <!-- THREE EQUAL HORIZONTAL BOXES -->
+
+                <div class="services-row">
+
+                    <!-- =====================================
+
+     BOX 1 — BULB REPLACEMENT
+
+====================================== -->
+
+<div class="service-box">
+
+    <div class="service-top">
+
+        <div class="service-icon">
+
+            💡
+
+        </div>
+
+        <h3>
+
+            Bulb Replacement
+
+        </h3>
+
+        <p>
+
+            Give your firefly a fresh
+
+            new glow with a bulb
+
+            replacement.
+
+        </p>
+
+    </div>
+
+    <a href="../../../Bulbreplacement/index.html" class="service-button">
+
+        Explore →
+
+    </a>
+
+</div>
+
+                    <!-- =====================================
+
+                         BOX 2 — BRIGHTNESS
+
+                    ====================================== -->
+
+                    <div class="service-box">
+
+                        <div class="service-top">
+
+                            <div class="service-icon">
+
+                                🔆
+
+                            </div>
+
+                            <h3>
+
+                                Brightness Adjustment
+
+                            </h3>
+
+                            <p>
+
+                                Adjust your firefly's
+
+                                brightness and find
+
+                                its perfect glow.
+
+                            </p>
+
+                        </div>
+
+                        <button
+
+                            class="service-button"
+
+                            onclick="openService('../../../brightnessadjustment/index.html')"
+
+                        >
+
+                            Adjust Brightness →
+
+                        </button>
+
+                    </div>
+
+                    <!-- =====================================
+
+                         BOX 3 — COLOR CHANGE
+
+                    ====================================== -->
+
+                    <div class="service-box">
+
+                        <div class="service-top">
+
+                            <div class="service-icon">
+
+                                🌈
+
+                            </div>
+
+                            <h3>
+
+                                Color Change
+
+                            </h3>
+                            <p>
+
+                                Give your firefly a new
+
+                                color and personality.
+
+                            </p>
+
+                        </div>
+
+                        <button
+
+                            class="service-button"
+
+                            onclick="openService('../../../colourchange/index.html')"
+
+                        >
+
+                            Change Color →
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <h3>
+
+                FLYBULB™
+
+            </h3>
+
+            <p>
+
+                Professional Firefly
+
+                Illumination Services
+
+            </p>
+
+            <p>
+
+                A service by Euvn Enterprises
+
+                Private Limited
+
+            </p>
+
+            <small>
+
+                © 2026 FLYBULB™ —
+
+                Because every firefly deserves
+
+                better lighting. ✨
+
+            </small>
+
+        </footer>
+
+    </section>
+
+    <script>
+        const welcomePage = document.getElementById("welcomePage");
+        const loginPage = document.getElementById("loginPage");
+        const registerPage = document.getElementById("registerPage");
+        const websitePage = document.getElementById("websitePage");
+
+        function hideAllPages() {
+            [welcomePage, loginPage, registerPage, websitePage]
+                .filter(Boolean)
+                .forEach(page => page.classList.add("hidden"));
+        }
+
+        function showLogin() {
+            hideAllPages();
+            loginPage.classList.remove("hidden");
+            window.scrollTo(0, 0);
+        }
+
+        function showRegister() {
+            hideAllPages();
+            registerPage.classList.remove("hidden");
+            window.scrollTo(0, 0);
+        }
+
+        function showWelcome() {
+            hideAllPages();
+            welcomePage.classList.remove("hidden");
+            window.scrollTo(0, 0);
+        }
+
+        function showServices() {
+            hideAllPages();
+            websitePage.classList.remove("hidden");
+            window.scrollTo(0, 0);
+        }
+
+        function registerUser() {
+            const name = document.getElementById("registerName").value.trim();
+            const id = document.getElementById("registerId").value.trim();
+            const email = document.getElementById("registerEmail").value.trim();
+            const password = document.getElementById("registerPassword").value.trim();
+
+            if (!name || !id || !email || !password) {
+                alert("Please complete all registration fields.");
+                return;
+            }
+
+            localStorage.setItem("flybulbAccount", JSON.stringify({
+                name,
+                id,
+                email,
+                password
+            }));
+
+            document.getElementById("loginName").value = name;
+            document.getElementById("loginId").value = id;
+            document.getElementById("loginPassword").value = "";
+            alert("Account created successfully. Please log in.");
+            showLogin();
+        }
+
+        function loginUser() {
+            const name = document.getElementById("loginName").value.trim();
+            const id = document.getElementById("loginId").value.trim();
+            const password = document.getElementById("loginPassword").value.trim();
+
+            if (!name || !id || !password) {
+                alert("Please enter your name, ID, and password.");
+                return;
+            }
+
+            const savedAccount = JSON.parse(localStorage.getItem("flybulbAccount") || "null");
+
+            if (savedAccount && (savedAccount.id !== id || savedAccount.password !== password)) {
+                alert("The ID or password does not match your account.");
+                return;
+            }
+
+            document.getElementById("userName").textContent = name;
+            localStorage.setItem("flybulbName", name);
+            hideAllPages();
+            websitePage.classList.remove("hidden");
+            window.scrollTo(0, 0);
+        }
+
+        function logoutUser() {
+            showWelcome();
+        }
+
+        function openService(page) {
+            window.location.href = page;
+        }
+
+        if (window.location.hash === "#services") {
+            showServices();
+        }
+    </script>
+
+</body>
+
+</html>
