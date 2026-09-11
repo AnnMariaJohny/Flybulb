@@ -143,3 +143,34 @@ registerForm.addEventListener("submit", function (event) {
     window.location.href = "login.html";
 
 });
+
+const registerPassword = document.getElementById("registerPassword");
+const toggleRegisterPassword = document.getElementById("toggleRegisterPassword");
+
+toggleRegisterPassword.addEventListener("click", function () {
+
+    if (registerPassword.type === "password") {
+        registerPassword.type = "text";
+        toggleRegisterPassword.textContent = "🙈";
+    } else {
+        registerPassword.type = "password";
+        toggleRegisterPassword.textContent = "👁";
+    }
+
+});
+
+
+const confirmPassword = document.getElementById("confirmPassword");
+const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+
+toggleConfirmPassword.addEventListener("click", function () {
+
+    if (confirmPassword.type === "password") {
+        confirmPassword.type = "text";
+        toggleConfirmPassword.textContent = "🙈";
+    } else {
+        confirmPassword.type = "password";
+        toggleConfirmPassword.textContent = "👁";
+    }
+
+});
