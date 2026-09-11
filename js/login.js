@@ -1,3 +1,4 @@
+```javascript
 // ==========================================
 // SHOW / HIDE PASSWORD
 // ==========================================
@@ -31,7 +32,6 @@ const loginForm = document.getElementById("loginForm");
 loginForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
-
 
     // Get entered details
 
@@ -165,3 +165,4 @@ loginForm.addEventListener("submit", function (event) {
     }
 
 });
+```

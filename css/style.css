@@ -1,7 +1,12 @@
-/* =========================================
-   FLYBULB™
-   Magical Night Theme
-   ========================================= */
+
+/* =========================================================
+   FLYBULB™ LOGIN PAGE
+   ========================================================= */
+
+
+/* =========================
+   RESET
+   ========================= */
 
 * {
     margin: 0;
@@ -14,63 +19,56 @@ html {
 }
 
 body {
-    font-family: "Trebuchet MS", Arial, sans-serif;
-    background: #07152E;
-    color: #FFF8E7;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 15% 40%, rgba(255, 210, 80, 0.08), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(255, 230, 120, 0.06), transparent 30%),
+        #080b12;
+    color: #ffffff;
     min-height: 100vh;
 }
 
 
-/* =========================================
+/* =========================================================
    NAVBAR
-   ========================================= */
+   ========================================================= */
 
 .navbar {
-    width: 92%;
-    margin: 20px auto;
-
-    min-height: 82px;
-
-    padding: 12px 28px;
+    width: 100%;
+    min-height: 85px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    background: rgba(10, 29, 56, 0.92);
+    padding: 15px 6%;
 
-    border: 1px solid rgba(255, 216, 90, 0.25);
-
-    border-radius: 50px;
-
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.35),
-        0 0 25px rgba(255, 216, 90, 0.08);
+    background: rgba(7, 10, 17, 0.95);
+    border-bottom: 1px solid rgba(255, 214, 80, 0.15);
 
     position: relative;
     z-index: 10;
 }
 
 
-/* =========================================
-   LOGO
-   ========================================= */
+/* Logo section */
 
 .logo-section {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
 }
 
+
+/* Logo image */
+
 .logo-image {
-    width: 62px;
-    height: 62px;
+    width: 52px;
+    height: 52px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    overflow: hidden;
 }
 
 .logo-image img {
@@ -79,1125 +77,111 @@ body {
 
     object-fit: contain;
 
-    display: block;
+    filter:
+        drop-shadow(0 0 5px rgba(255, 220, 90, 0.6))
+        drop-shadow(0 0 12px rgba(255, 210, 60, 0.25));
 }
 
 
+/* Logo text */
+
 .logo-section h1 {
-    font-size: 30px;
+    font-size: 25px;
     letter-spacing: 2px;
-
-    color: #FFD85A;
-
-    line-height: 1;
+    color: #ffe477;
 }
 
 .logo-section h1 span {
     font-size: 12px;
     vertical-align: top;
-
-    color: #FFF0A3;
+    color: #fff0a6;
 }
 
 .logo-section p {
-    margin-top: 5px;
-
+    margin-top: 2px;
     font-size: 11px;
-    letter-spacing: 0.5px;
-
-    color: #BBD9F5;
+    color: #a7a9b3;
 }
 
 
-/* =========================================
-   NAVIGATION
-   ========================================= */
+/* Navigation */
 
-nav {
+.navbar nav {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 28px;
 }
 
-nav a {
+.navbar nav a {
+    color: #c9cbd3;
     text-decoration: none;
 
-    color: #FFF8E7;
-
-    font-weight: bold;
-
-    padding: 12px 18px;
-
-    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
 
     transition: 0.3s ease;
+
+    position: relative;
 }
 
-nav a:hover {
-    color: #FFD85A;
-
-    background: rgba(255, 216, 90, 0.08);
-}
-
-nav a.active {
-    color: #07152E;
-
-    background: #FFD85A;
-
-    box-shadow:
-        0 0 15px rgba(255, 216, 90, 0.35);
+.navbar nav a:hover {
+    color: #ffe477;
 }
 
 
-/* =========================================
-   LOGIN BUTTON
-   ========================================= */
+/* Underline animation */
+
+.navbar nav a:not(.login-btn)::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: #ffe477;
+
+    transition: width 0.3s ease;
+}
+
+.navbar nav a:not(.login-btn):hover::after {
+    width: 100%;
+}
+
+
+/* Login button */
 
 .login-btn {
-    background: #FFD85A !important;
+    padding: 10px 20px;
 
-    color: #07152E !important;
-
-    padding: 12px 24px !important;
-
-    border-radius: 30px;
-
-    margin-left: 8px;
-
-    box-shadow:
-        0 0 15px rgba(255, 216, 90, 0.3);
-}
-
-.login-btn:hover {
-    background: #FFF0A3 !important;
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================================
-   HERO SECTION
-   ========================================= */
-
-.hero {
-    width: 92%;
-    min-height: 600px;
-
-    margin: 0 auto;
-
-    border-radius: 35px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 60px;
-
-    background:
-        radial-gradient(
-            circle at 30% 50%,
-            rgba(255, 216, 90, 0.12),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 75% 30%,
-            rgba(60, 130, 200, 0.18),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #07152E,
-            #0D2344,
-            #061329
-        );
-
-    border: 1px solid rgba(120, 180, 230, 0.15);
-
-    box-shadow:
-        inset 0 0 100px rgba(0, 0, 0, 0.25),
-        0 20px 50px rgba(0, 0, 0, 0.35);
-}
-
-
-/* =========================================
-   HERO DECORATIVE GLOW
-   ========================================= */
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 450px;
-    height: 450px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 216, 90, 0.08);
-
-    filter: blur(80px);
-
-    left: 5%;
-    top: 20%;
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   HERO FIREFLY
-   ========================================= */
-
-.hero-firefly {
-    width: 45%;
-
-    min-height: 420px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.hero-firefly::after {
-    content: "";
-
-    position: absolute;
-
-    width: 230px;
-    height: 230px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 216, 90, 0.18);
-
-    filter: blur(55px);
-
-    z-index: -1;
-
-    animation: glowPulse 2.5s infinite ease-in-out;
-}
-
-.hero-firefly video {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    min-height: 200px;
-
-    object-fit: contain;
-
-    position: relative;
-    z-index: 5;
-
+    border: 1px solid rgba(255, 220, 100, 0.5);
     border-radius: 25px;
-}
 
+    color: #ffe477 !important;
 
-/* =========================================
-   GLOW ANIMATION
-   ========================================= */
-
-@keyframes glowPulse {
-
-    0%,
-    100% {
-        transform: scale(0.9);
-
-        opacity: 0.5;
-    }
-
-    50% {
-        transform: scale(1.15);
-
-        opacity: 1;
-    }
-}
-
-
-/* =========================================
-   HERO CONTENT
-   ========================================= */
-
-.hero-content {
-    width: 45%;
-
-    position: relative;
-
-    z-index: 3;
-}
-
-.small-heading {
-    color: #FFD85A;
-
-    font-size: 18px;
-
-    margin-bottom: 20px;
-
-    letter-spacing: 1px;
-}
-
-.hero-content h2 {
-    font-size: 42px;
-
-    line-height: 1.15;
-
-    color: #FFF8E7;
-
-    margin-bottom: 5px;
-}
-
-.hero-content h3 {
-    font-size: 82px;
-
-    line-height: 1;
-
-    margin: 10px 0 20px;
-
-    color: #FFD85A;
-
-    letter-spacing: 5px;
-
-    text-shadow:
-        0 0 10px rgba(255, 216, 90, 0.4),
-        0 0 30px rgba(255, 216, 90, 0.25);
-}
-
-
-/* =========================================
-   TAGLINE
-   ========================================= */
-
-.tagline {
-    font-size: 18px;
-
-    line-height: 1.7;
-
-    color: #BBD9F5;
-
-    max-width: 480px;
-}
-
-.tagline strong {
-    color: #FFF0A3;
-}
-
-
-/* =========================================
-   BUTTONS
-   ========================================= */
-
-.hero-buttons {
-    display: flex;
-
-    gap: 15px;
-
-    margin-top: 30px;
-}
-
-.btn {
-    text-decoration: none;
-
-    padding: 14px 30px;
-
-    border-radius: 30px;
-
-    font-weight: bold;
+    background: rgba(255, 220, 100, 0.07);
 
     transition: 0.3s ease;
 }
 
-.primary-btn {
-    background: #FFD85A;
-
-    color: #07152E;
-
-    box-shadow:
-        0 0 20px rgba(255, 216, 90, 0.3);
-}
-
-.primary-btn:hover {
-    background: #FFF0A3;
-
-    transform: translateY(-3px);
+.login-btn:hover,
+.login-btn.active {
+    background: #ffe477;
+    color: #111 !important;
 
     box-shadow:
-        0 0 30px rgba(255, 216, 90, 0.5);
-}
-
-.secondary-btn {
-    border: 2px solid #FFD85A;
-
-    color: #FFD85A;
-
-    background: transparent;
-}
-
-.secondary-btn:hover {
-    background: #FFD85A;
-
-    color: #07152E;
-
-    transform: translateY(-3px);
+        0 0 15px rgba(255, 220, 100, 0.35);
 }
 
 
-/* =========================================
-   SERVICES PREVIEW
-   ========================================= */
-
-.services-preview {
-    width: 92%;
-
-    margin: 25px auto 0;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 15px;
-}
-
-.service-mini-card {
-    padding: 22px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    background: #0D2344;
-
-    border: 1px solid rgba(255, 216, 90, 0.15);
-
-    border-radius: 20px;
-
-    transition: 0.3s ease;
-}
-
-.service-mini-card:hover {
-    transform: translateY(-5px);
-
-    border-color: rgba(255, 216, 90, 0.5);
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.25),
-        0 0 20px rgba(255, 216, 90, 0.08);
-}
-
-.service-icon {
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    border-radius: 50%;
-
-    background: rgba(255, 216, 90, 0.12);
-
-    font-size: 23px;
-}
-
-.service-mini-card h4 {
-    color: #FFD85A;
-
-    margin-bottom: 5px;
-}
-
-.service-mini-card p {
-    color: #BBD9F5;
-
-    font-size: 13px;
-
-    line-height: 1.4;
-}
-
-
-/* =========================================
-   FOOTER
-   ========================================= */
-
-footer {
-    margin-top: 30px;
-
-    padding: 35px 20px;
-
-    text-align: center;
-
-    background: #061329;
-
-    border-top: 1px solid rgba(255, 216, 90, 0.15);
-}
-
-footer h3 {
-    color: #FFD85A;
-
-    font-size: 24px;
-
-    margin-bottom: 8px;
-}
-
-footer p {
-    color: #BBD9F5;
-
-    margin: 5px;
-}
-
-footer small {
-    display: block;
-
-    margin-top: 15px;
-
-    color: #6F91B3;
-}
-
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-
-@media (max-width: 900px) {
-
-    .navbar {
-        flex-direction: column;
-
-        gap: 15px;
-
-        border-radius: 25px;
-    }
-
-    nav {
-        flex-wrap: wrap;
-
-        justify-content: center;
-    }
-
-    .hero {
-        flex-direction: column;
-
-        padding: 50px 25px;
-
-        gap: 20px;
-    }
-
-    .hero-firefly,
-    .hero-content {
-        width: 100%;
-
-        text-align: center;
-    }
-
-    .hero-content h2 {
-        font-size: 34px;
-    }
-
-    .hero-content h3 {
-        font-size: 65px;
-    }
-
-    .tagline {
-        margin: auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .services-preview {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* =========================================
+/* =========================================================
    LOGIN PAGE
-   ========================================= */
+   ========================================================= */
 
 .login-page {
-    width: 92%;
-    min-height: 680px;
-    margin: 0 auto;
-
-    position: relative;
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 60px 30px;
-
-    background:
-        radial-gradient(
-            circle at 25% 50%,
-            rgba(255, 216, 90, 0.12),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(60, 130, 200, 0.18),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #07152E,
-            #0D2344,
-            #061329
-        );
-
-    border-radius: 35px;
-
-    border: 1px solid rgba(255, 216, 90, 0.12);
-
-    box-shadow:
-        inset 0 0 100px rgba(0, 0, 0, 0.25),
-        0 20px 50px rgba(0, 0, 0, 0.35);
-}
-
-
-/* =========================================
-   DECORATIVE BACKGROUND GLOW
-   ========================================= */
-
-.login-page::before {
-    content: "";
-
-    position: absolute;
-
-    width: 400px;
-    height: 400px;
-
-    left: 5%;
-    top: 20%;
-
-    border-radius: 50%;
-
-    background: rgba(255, 216, 90, 0.08);
-
-    filter: blur(80px);
-
-    pointer-events: none;
-}
-
-.login-page::after {
-
-    position: absolute;
-
-    top: 60px;
-    left: 70px;
-
-    color: rgba(255, 216, 90, 0.45);
-
-    font-size: 24px;
-
-    letter-spacing: 20px;
-
-    animation: twinkle 3s infinite ease-in-out;
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   FIREFLY SIDE
-   ========================================= */
-
-.login-firefly {
-    width: 40%;
-    max-width: 450px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.login-firefly::before {
-    content: "";
-
-    position: absolute;
-
-    width: 260px;
-    height: 260px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 216, 90, 0.2);
-
-    filter: blur(60px);
-
-    animation: loginGlow 2.5s infinite ease-in-out;
-}
-
-
-
-/* =========================================
-   LOGIN CARD
-   ========================================= */
-
-.login-card {
-    width: 470px;
-
-    padding: 42px 45px;
-
-    position: relative;
-
-    z-index: 5;
-
-    background: rgba(7, 21, 46, 0.92);
-
-    border: 1px solid rgba(255, 216, 90, 0.25);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.45),
-        0 0 35px rgba(255, 216, 90, 0.08);
-
-    backdrop-filter: blur(12px);
-}
-
-
-/* =========================================
-   CARD TOP DECORATION
-   ========================================= */
-
-.login-decoration {
-    width: 45px;
-    height: 45px;
-
-    margin: -65px auto 15px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #FFD85A;
-
-    color: #07152E;
-
-    font-size: 21px;
-
-    box-shadow:
-        0 0 25px rgba(255, 216, 90, 0.45);
-}
-
-
-/* =========================================
-   LOGIN HEADING
-   ========================================= */
-
-.login-card h2 {
-    text-align: center;
-
-    color: #FFF8E7;
-
-    font-size: 31px;
-
-    line-height: 1.25;
-
-    margin-bottom: 10px;
-}
-
-.login-card h2 span {
-    display: block;
-
-    color: #FFD85A;
-
-    text-shadow:
-        0 0 15px rgba(255, 216, 90, 0.25);
-}
-
-.login-subtitle {
-    text-align: center;
-
-    color: #BBD9F5;
-
-    font-size: 14px;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================================
-   FORM
-   ========================================= */
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-
-    color: #FFF0A3;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    margin-bottom: 8px;
-}
-
-
-/* =========================================
-   INPUT BOX
-   ========================================= */
-
-.input-box {
-    height: 52px;
-
-    display: flex;
-    align-items: center;
-
-    border: 1px solid rgba(187, 217, 245, 0.25);
-
-    border-radius: 15px;
-
-    background: rgba(13, 35, 68, 0.75);
-
-    transition: 0.3s ease;
-}
-
-.input-box:focus-within {
-    border-color: #FFD85A;
-
-    box-shadow:
-        0 0 15px rgba(255, 216, 90, 0.12);
-}
-
-.input-icon {
-    width: 50px;
-
-    text-align: center;
-
-    font-size: 18px;
-
-    color: #FFD85A;
-}
-
-.input-box input {
-    flex: 1;
-
-    height: 100%;
-
-    border: none;
-
-    outline: none;
-
-    background: transparent;
-
-    color: #FFF8E7;
-
-    font-size: 14px;
-
-    font-family: inherit;
-}
-
-.input-box input::placeholder {
-    color: #6F91B3;
-}
-
-
-/* =========================================
-   PASSWORD TOGGLE
-   ========================================= */
-
-.password-toggle {
-    border: none;
-
-    background: transparent;
-
-    color: #BBD9F5;
-
-    font-size: 17px;
-
-    cursor: pointer;
-
-    padding: 0 16px;
-
-    transition: 0.3s ease;
-}
-
-.password-toggle:hover {
-    color: #FFD85A;
-}
-
-
-/* =========================================
-   REMEMBER + FORGOT
-   ========================================= */
-
-.login-options {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 10px;
-
-    margin: 5px 0 25px;
-
-    font-size: 12px;
-}
-
-.remember-me {
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    color: #BBD9F5;
-
-    cursor: pointer;
-}
-
-.remember-me input {
-    accent-color: #FFD85A;
-
-    cursor: pointer;
-}
-
-.forgot-password {
-    color: #FFD85A;
-
-    text-decoration: none;
-
-    transition: 0.3s ease;
-}
-
-.forgot-password:hover {
-    color: #FFF0A3;
-
-    text-decoration: underline;
-}
-
-
-/* =========================================
-   LOGIN SUBMIT BUTTON
-   ========================================= */
-
-.login-submit {
-    width: 100%;
-
-    height: 55px;
-
-    border: none;
-
-    border-radius: 30px;
-
-    background: #FFD85A;
-
-    color: #07152E;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    font-family: inherit;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 20px rgba(255, 216, 90, 0.25);
-
-    transition: 0.3s ease;
-}
-
-.login-submit:hover {
-    background: #FFF0A3;
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 0 30px rgba(255, 216, 90, 0.45);
-}
-
-.login-submit:active {
-    transform: translateY(0);
-}
-
-
-/* =========================================
-   DIVIDER
-   ========================================= */
-
-.login-divider {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    margin: 28px 0 22px;
-
-    color: #6F91B3;
-
-    font-size: 12px;
-}
-
-.login-divider::before,
-.login-divider::after {
-    content: "";
-
-    height: 1px;
-
-    flex: 1;
-
-    background: rgba(187, 217, 245, 0.18);
-}
-
-.login-divider span {
-    color: #6F91B3;
-}
-
-
-/* =========================================
-   REGISTER
-   ========================================= */
-
-.register-prompt {
-    text-align: center;
-}
-
-.register-prompt p {
-    color: #BBD9F5;
-
-    font-size: 13px;
-
-    margin-bottom: 10px;
-}
-
-.register-prompt a {
-    color: #FFD85A;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    font-size: 14px;
-
-    transition: 0.3s ease;
-}
-
-.register-prompt a:hover {
-    color: #FFF0A3;
-
-    text-decoration: underline;
-}
-
-
-/* =========================================
-   ANIMATIONS
-   ========================================= */
-
-@keyframes loginGlow {
-
-    0%,
-    100% {
-        transform: scale(0.9);
-        opacity: 0.5;
-    }
-
-    50% {
-        transform: scale(1.15);
-        opacity: 1;
-    }
-}
-
-@keyframes twinkle {
-
-    0%,
-    100% {
-        opacity: 0.35;
-        transform: translateY(0);
-    }
-
-    50% {
-        opacity: 1;
-        transform: translateY(-5px);
-    }
-}
-
-
-/* =========================================
-   LOGIN RESPONSIVE
-   ========================================= */
-
-@media (max-width: 850px) {
-
-    .login-page {
-        flex-direction: column;
-
-        padding: 60px 20px;
-    }
-
-    .login-firefly {
-        width: 70%;
-
-        max-width: 300px;
-    }
-
-    .login-card {
-        width: 100%;
-
-        max-width: 470px;
-    }
-}
-
-
-@media (max-width: 500px) {
-
-    .login-card {
-        padding: 35px 22px;
-
-        border-radius: 22px;
-    }
-
-    .login-card h2 {
-        font-size: 26px;
-    }
-
-    .login-options {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-}
-
-/* =========================================
-   REGISTER PAGE
-   ========================================= */
-
-.register-page {
-    width: 92%;
-    min-height: 750px;
-
-    margin: 0 auto;
-
-    padding: 60px 40px;
+    min-height: calc(100vh - 85px);
 
     display: flex;
     align-items: center;
@@ -1205,1131 +189,709 @@ footer small {
 
     gap: 70px;
 
+    padding: 70px 7%;
+
     position: relative;
     overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 20% 50%,
-            rgba(255, 216, 90, 0.12),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(60, 130, 200, 0.18),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #07152E,
-            #0D2344,
-            #061329
-        );
-
-    border-radius: 35px;
-
-    border: 1px solid rgba(255, 216, 90, 0.12);
-
-    box-shadow:
-        inset 0 0 100px rgba(0, 0, 0, 0.25),
-        0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
 
-/* =========================================
-   BACKGROUND DECORATION
-   ========================================= */
+/* Decorative glow */
 
-.register-page::before {
-    position: absolute;
-
-    top: 55px;
-    right: 80px;
-
-    color: rgba(255, 216, 90, 0.35);
-
-    font-size: 24px;
-
-    letter-spacing: 12px;
-
-    animation: registerTwinkle 4s infinite ease-in-out;
-
-    pointer-events: none;
-}
-
-.register-page::after {
+.login-page::before {
     content: "";
 
     position: absolute;
 
-    width: 400px;
-    height: 400px;
-
-    right: -100px;
-    bottom: -100px;
+    width: 500px;
+    height: 500px;
 
     border-radius: 50%;
 
-    background: rgba(255, 216, 90, 0.06);
+    background: rgba(255, 215, 80, 0.05);
 
-    filter: blur(80px);
+    filter: blur(90px);
 
-    pointer-events: none;
-}
-
-
-/* =========================================
-   FIREFLY SIDE
-   ========================================= */
-
-.register-firefly {
-    width: 42%;
-
-    max-width: 450px;
-
-    text-align: center;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-
-
-/* Golden glow behind firefly */
-
-.register-firefly::before {
-    content: "";
-
-    position: absolute;
-
-    width: 270px;
-    height: 270px;
-
+    top: 50%;
     left: 50%;
-    top: 35%;
 
     transform: translate(-50%, -50%);
 
-    border-radius: 50%;
-
-    background: rgba(255, 216, 90, 0.2);
-
-    filter: blur(65px);
-
-    animation: registerGlow 2.8s infinite ease-in-out;
-
-    z-index: -1;
+    pointer-events: none;
 }
 
 
-/* =========================================
-   FIREFLY TEXT
-   ========================================= */
+/* =========================================================
+   FIREFLY VIDEO
+   ========================================================= */
 
-.register-glow-text {
-    font-size: 28px;
-
-    color: #FFD85A;
-
-    margin-bottom: -10px;
-
-    position: relative;
-
-    z-index: 3;
-
-    animation: registerTwinkle 2s infinite ease-in-out;
-}
-
-.register-firefly h3 {
-    margin-top: 5px;
-
-    color: #FFF8E7;
-
-    font-size: 27px;
-
-    line-height: 1.3;
-}
-
-.register-firefly p {
-    margin-top: 12px;
-
-    color: #BBD9F5;
-
-    font-size: 14px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================
-   REGISTER CARD
-   ========================================= */
-
-.register-card {
-    width: 500px;
-
-    padding: 38px 42px;
-
-    position: relative;
-
-    z-index: 5;
-
-    background: rgba(7, 21, 46, 0.94);
-
-    border: 1px solid rgba(255, 216, 90, 0.25);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.45),
-        0 0 35px rgba(255, 216, 90, 0.08);
-
-    backdrop-filter: blur(12px);
-}
-
-
-/* =========================================
-   REGISTER DECORATION
-   ========================================= */
-
-.register-decoration {
-    width: 45px;
-    height: 45px;
-
-    margin: -60px auto 12px;
+.login-firefly {
+    width: 430px;
+    height: 500px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
+    position: relative;
+}
+
+
+/* Glow behind video */
+
+.login-firefly::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    background: rgba(255, 221, 100, 0.13);
+
     border-radius: 50%;
 
-    background: #FFD85A;
+    filter: blur(70px);
 
-    color: #07152E;
+    animation: fireflyGlow 3s ease-in-out infinite;
+}
 
-    font-size: 20px;
+
+/* Video */
+
+.login-firefly video {
+    display: block;
+
+    width: 100%;
+    max-width: 430px;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 28px;
+
+    position: relative;
+    z-index: 1;
+
+    border: 1px solid rgba(255, 220, 100, 0.2);
 
     box-shadow:
-        0 0 25px rgba(255, 216, 90, 0.45);
+        0 0 30px rgba(255, 215, 90, 0.12),
+        0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 
-/* =========================================
-   REGISTER HEADING
-   ========================================= */
+/* Glow animation */
 
-.register-card h2 {
-    text-align: center;
+@keyframes fireflyGlow {
 
-    color: #FFF8E7;
+    0%,
+    100% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
 
-    font-size: 29px;
-
-    line-height: 1.25;
-
-    margin-bottom: 8px;
-}
-
-.register-card h2 span {
-    display: block;
-
-    color: #FFD85A;
-
-    text-shadow:
-        0 0 15px rgba(255, 216, 90, 0.25);
-}
-
-.register-subtitle {
-    text-align: center;
-
-    color: #BBD9F5;
-
-    font-size: 13px;
-
-    margin-bottom: 25px;
+    50% {
+        transform: scale(1.15);
+        opacity: 0.9;
+    }
 }
 
 
-/* =========================================
-   REGISTER FORM
-   ========================================= */
+/* =========================================================
+   LOGIN CARD
+   ========================================================= */
 
-.register-card .form-group {
-    margin-bottom: 14px;
+.login-card {
+    width: 100%;
+    max-width: 480px;
+
+    padding: 42px 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 28, 38, 0.96),
+            rgba(12, 15, 23, 0.98)
+        );
+
+    border: 1px solid rgba(255, 220, 100, 0.16);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(255, 210, 80, 0.05);
+
+    position: relative;
+    z-index: 2;
+
+    backdrop-filter: blur(15px);
+
+    animation: cardAppear 0.8s ease;
 }
 
-.register-card .form-group label {
-    display: block;
 
-    color: #FFF0A3;
+/* Card entrance */
 
-    font-size: 13px;
+@keyframes cardAppear {
 
-    font-weight: bold;
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
 
-    margin-bottom: 6px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
-/* =========================================
-   INPUTS
-   ========================================= */
+/* =========================================================
+   DECORATION
+   ========================================================= */
 
-.register-card .input-box {
-    height: 47px;
+.login-decoration {
+    width: 45px;
+    height: 45px;
 
     display: flex;
-
     align-items: center;
+    justify-content: center;
 
-    border: 1px solid rgba(187, 217, 245, 0.22);
+    margin: 0 auto 18px;
 
-    border-radius: 13px;
+    border-radius: 50%;
 
-    background: rgba(13, 35, 68, 0.75);
+    color: #ffe477;
 
-    transition: 0.3s ease;
-}
+    font-size: 24px;
 
-.register-card .input-box:focus-within {
-    border-color: #FFD85A;
+    background: rgba(255, 220, 100, 0.08);
+
+    border: 1px solid rgba(255, 220, 100, 0.2);
 
     box-shadow:
-        0 0 15px rgba(255, 216, 90, 0.12);
+        0 0 20px rgba(255, 220, 100, 0.1);
 }
 
-.register-card .input-icon {
-    width: 45px;
 
+/* =========================================================
+   LOGIN HEADING
+   ========================================================= */
+
+.login-card h2 {
     text-align: center;
 
-    color: #FFD85A;
+    font-size: 29px;
+    line-height: 1.3;
 
-    font-size: 16px;
+    font-weight: 600;
+
+    color: #ffffff;
 }
 
-.register-card .input-box input {
+.login-card h2 span {
+    display: block;
+
+    color: #ffe477;
+
+    margin-top: 4px;
+
+    text-shadow:
+        0 0 15px rgba(255, 220, 100, 0.2);
+}
+
+
+/* Subtitle */
+
+.login-subtitle {
+    text-align: center;
+
+    margin: 12px 0 30px;
+
+    color: #9699a5;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #d9dbe2;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   INPUT BOX
+   ========================================================= */
+
+.input-box {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 52px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 12px;
+
+    transition: 0.3s ease;
+
+    overflow: hidden;
+}
+
+.input-box:focus-within {
+    border-color: rgba(255, 220, 100, 0.65);
+
+    background: rgba(255, 220, 100, 0.035);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 220, 100, 0.06),
+        0 0 20px rgba(255, 220, 100, 0.05);
+}
+
+
+/* Input icon */
+
+.input-icon {
+    width: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    color: #ffe477;
+
+    flex-shrink: 0;
+}
+
+
+/* Input */
+
+.input-box input {
     flex: 1;
 
     height: 100%;
 
     border: none;
-
     outline: none;
 
     background: transparent;
 
-    color: #FFF8E7;
-
-    font-size: 13px;
-
-    font-family: inherit;
-
-    padding-right: 12px;
-}
-
-.register-card .input-box input::placeholder {
-    color: #6F91B3;
-}
-
-
-/* =========================================
-   FIREFLY ID
-   ========================================= */
-
-.firefly-id-box {
-    margin-top: 18px;
-
-    padding: 14px 16px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-
-    border-radius: 15px;
-
-    background: rgba(255, 216, 90, 0.07);
-
-    border: 1px dashed rgba(255, 216, 90, 0.4);
-}
-
-.id-icon {
-    width: 40px;
-    height: 40px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: rgba(255, 216, 90, 0.12);
-
-    font-size: 17px;
-}
-
-.firefly-id-box span {
-    display: block;
-
-    color: #BBD9F5;
-
-    font-size: 11px;
-
-    margin-bottom: 4px;
-}
-
-.firefly-id-box strong {
-    display: block;
-
-    color: #FFD85A;
+    color: #ffffff;
 
     font-size: 14px;
 
-    letter-spacing: 1px;
+    padding: 0 5px;
+}
+
+.input-box input::placeholder {
+    color: #666a76;
+}
+
+.input-box input:focus::placeholder {
+    color: #777b87;
 }
 
 
-/* =========================================
-   GLOW POLICY
-   ========================================= */
+/* =========================================================
+   PASSWORD TOGGLE
+   ========================================================= */
 
-.glow-policy {
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 8px;
-
-    margin: 18px 0;
-
-    color: #BBD9F5;
-
-    font-size: 11px;
-
-    line-height: 1.4;
-
-    cursor: pointer;
-}
-
-.glow-policy input {
-    margin-top: 2px;
-
-    accent-color: #FFD85A;
-
-    cursor: pointer;
-}
-
-.glow-policy a {
-    color: #FFD85A;
-
-    text-decoration: none;
-
-    font-weight: bold;
-}
-
-.glow-policy a:hover {
-    text-decoration: underline;
-
-    color: #FFF0A3;
-}
-
-
-/* =========================================
-   REGISTER BUTTON
-   ========================================= */
-
-.register-submit {
-    width: 100%;
-
-    height: 52px;
+.password-toggle {
+    width: 48px;
+    height: 100%;
 
     border: none;
 
-    border-radius: 30px;
+    background: transparent;
 
-    background: #FFD85A;
+    color: #a9abb5;
 
-    color: #07152E;
-
-    font-family: inherit;
-
-    font-size: 15px;
-
-    font-weight: bold;
+    font-size: 17px;
 
     cursor: pointer;
 
-    box-shadow:
-        0 0 20px rgba(255, 216, 90, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.25s ease;
+
+    flex-shrink: 0;
+}
+
+.password-toggle:hover {
+    color: #ffe477;
+
+    transform: scale(1.1);
+}
+
+
+/* =========================================================
+   LOGIN OPTIONS
+   ========================================================= */
+
+.login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 4px 0 25px;
+
+    font-size: 12px;
+}
+
+
+/* Remember checkbox */
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #9699a5;
+
+    cursor: pointer;
+}
+
+.remember-me input {
+    accent-color: #ffe477;
+
+    cursor: pointer;
+}
+
+
+/* Forgot password */
+
+.forgot-password {
+    color: #ffe477;
+
+    text-decoration: none;
 
     transition: 0.3s ease;
 }
 
-.register-submit:hover {
-    background: #FFF0A3;
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 0 30px rgba(255, 216, 90, 0.45);
+.forgot-password:hover {
+    color: #ffffff;
 }
 
-.register-submit:active {
+
+/* =========================================================
+   LOGIN SUBMIT BUTTON
+   ========================================================= */
+
+.login-submit {
+    width: 100%;
+
+    height: 53px;
+
+    border: none;
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe477,
+            #ffc83d
+        );
+
+    color: #171717;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(255, 205, 70, 0.18);
+
+    transition: 0.3s ease;
+}
+
+.login-submit:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 35px rgba(255, 205, 70, 0.3);
+}
+
+.login-submit:active {
     transform: translateY(0);
 }
 
 
-/* =========================================
-   LOGIN LINK
-   ========================================= */
-
-.register-login {
-    text-align: center;
-
-    margin-top: 20px;
-}
-
-.register-login p {
-    color: #BBD9F5;
-
-    font-size: 12px;
-
-    margin-bottom: 7px;
-}
-
-.register-login a {
-    color: #FFD85A;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-    transition: 0.3s ease;
-}
-
-.register-login a:hover {
-    color: #FFF0A3;
-
-    text-decoration: underline;
-}
-
-
-/* =========================================
-   REGISTER ANIMATIONS
-   ========================================= */
-
-@keyframes registerGlow {
-
-    0%,
-    100% {
-        transform: translate(-50%, -50%) scale(0.9);
-
-        opacity: 0.45;
-    }
-
-    50% {
-        transform: translate(-50%, -50%) scale(1.15);
-
-        opacity: 1;
-    }
-}
-
-@keyframes registerTwinkle {
-
-    0%,
-    100% {
-        opacity: 0.35;
-
-        transform: translateY(0);
-    }
-
-    50% {
-        opacity: 1;
-
-        transform: translateY(-5px);
-    }
-}
-
-
-/* =========================================
-   REGISTER RESPONSIVE
-   ========================================= */
-
-@media (max-width: 950px) {
-
-    .register-page {
-        flex-direction: column;
-
-        gap: 30px;
-
-        padding: 70px 20px;
-    }
-
-    .register-firefly {
-        width: 70%;
-
-        max-width: 320px;
-    }
-
-    .register-card {
-        width: 100%;
-
-        max-width: 500px;
-    }
-}
-
-@media (max-width: 500px) {
-
-    .register-page {
-        width: 95%;
-
-        padding: 60px 12px;
-    }
-
-    .register-card {
-        padding: 35px 20px;
-
-        border-radius: 22px;
-    }
-
-    .register-card h2 {
-        font-size: 25px;
-    }
-
-    .register-firefly h3 {
-        font-size: 23px;
-    }
-}
-
-
-/* ==========================================
-   SERVICES PAGE
-   ========================================== */
-
-.services-page {
-    min-height: 100vh;
-
-    padding: 75px 7% 60px;
-
-    position: relative;
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 15% 25%,
-            rgba(255, 216, 90, 0.08),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(80, 150, 220, 0.10),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #07152E,
-            #0B1E3A,
-            #061329
-        );
-}
-
-
-/* ==========================================
-   HEADING
-   ========================================== */
-
-.services-heading {
-    text-align: center;
-
-    max-width: 750px;
-
-    margin: 0 auto 55px;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.heading-decoration {
-    color: #FFD85A;
-
-    font-size: 25px;
-
-    margin-bottom: 8px;
-
-    animation: serviceTwinkle 2s infinite ease-in-out;
-}
-
-.services-eyebrow {
-    color: #FFD85A;
-
-    font-size: 12px;
-
-    letter-spacing: 3px;
-
-    font-weight: bold;
-
-    margin-bottom: 12px;
-}
-
-.services-heading h2 {
-    margin: 0;
-
-    color: #FFF8E7;
-
-    font-size: clamp(48px, 7vw, 78px);
-
-    font-weight: 800;
-
-    letter-spacing: -2px;
-
-    text-shadow:
-        0 0 25px rgba(255, 216, 90, 0.12);
-}
-
-.services-tagline {
-    margin-top: 15px;
-
-    color: #AFC9E5;
-
-    font-size: 19px;
-
-    line-height: 1.5;
-}
-
-.services-tagline span {
-    color: #FFD85A;
-
-    font-weight: bold;
-
-    display: block;
-}
-
-
-/* ==========================================
-   SERVICE GRID
-   ========================================== */
-
-.service-grid {
-    max-width: 1250px;
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 28px;
-
-    position: relative;
-
-    z-index: 2;
-}
-
-
-/* ==========================================
-   SERVICE CARD
-   ========================================== */
-
-.service-card {
-    min-height: 460px;
-
-    padding: 40px 30px 32px;
-
-    text-align: center;
-
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(18, 43, 76, 0.96),
-            rgba(7, 22, 45, 0.98)
-        );
-
-    border: 1px solid rgba(255, 216, 90, 0.18);
-
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.35);
-
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-
-/* Hover */
-
-.service-card:hover {
-    transform: translateY(-10px);
-
-    border-color:
-        rgba(255, 216, 90, 0.55);
-
-    box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.45),
-        0 0 35px rgba(255, 216, 90, 0.08);
-}
-
-
-/* Background glow */
-
-.service-card-glow {
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    top: -90px;
-    right: -60px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255, 216, 90, 0.10);
-
-    filter: blur(50px);
-
-    transition: 0.4s ease;
-}
-
-.service-card:hover .service-card-glow {
-    background:
-        rgba(255, 216, 90, 0.22);
-
-    transform: scale(1.4);
-}
-
-
-/* ==========================================
-   ICON
-   ========================================== */
-
-.service-icon {
-    width: 92px;
-    height: 92px;
-
-    margin: 5px auto 20px;
-
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.login-divider {
     display: flex;
-
     align-items: center;
-    justify-content: center;
 
-    border-radius: 50%;
+    gap: 15px;
 
-    font-size: 43px;
+    margin: 30px 0 22px;
 
-    background:
-        rgba(255, 216, 90, 0.08);
+    color: #555966;
 
-    border:
-        1px solid rgba(255, 216, 90, 0.25);
-
-    box-shadow:
-        0 0 30px rgba(255, 216, 90, 0.10);
-
-    transition: 0.35s ease;
+    font-size: 11px;
 }
 
-.service-card:hover .service-icon {
-    transform:
-        scale(1.08)
-        rotate(-4deg);
+.login-divider::before,
+.login-divider::after {
+    content: "";
 
-    box-shadow:
-        0 0 35px rgba(255, 216, 90, 0.25);
+    flex: 1;
+
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.08);
 }
 
-
-/* ==========================================
-   NUMBER
-   ========================================== */
-
-.service-number {
-    position: absolute;
-
-    top: 25px;
-    right: 27px;
-
-    color:
-        rgba(255, 216, 90, 0.25);
-
-    font-size: 12px;
-
-    font-weight: bold;
-
+.login-divider span {
     letter-spacing: 2px;
 }
 
 
-/* ==========================================
-   CARD CONTENT
-   ========================================== */
+/* =========================================================
+   REGISTER
+   ========================================================= */
 
-.service-card h3 {
-    color: #FFF8E7;
-
-    font-size: 24px;
-
-    margin-bottom: 15px;
+.register-prompt {
+    text-align: center;
 }
 
-.service-card p {
-    color: #9DB9D5;
+.register-prompt p {
+    color: #858995;
 
-    font-size: 14px;
+    font-size: 12px;
 
-    line-height: 1.7;
-
-    min-height: 96px;
-
-    margin-bottom: 17px;
+    margin-bottom: 9px;
 }
 
-
-/* ==========================================
-   HIGHLIGHT
-   ========================================== */
-
-.service-highlight {
-    display: inline-block;
-
-    padding: 6px 14px;
-
-    margin-bottom: 23px;
-
-    border-radius: 20px;
-
-    color: #FFD85A;
-
-    background:
-        rgba(255, 216, 90, 0.08);
-
-    border:
-        1px solid rgba(255, 216, 90, 0.18);
-
-    font-size: 11px;
-
-    font-weight: bold;
-
-    letter-spacing: 0.5px;
-}
-
-
-/* ==========================================
-   BUTTON
-   ========================================== */
-
-.service-btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-width: 190px;
-
-    padding: 13px 22px;
-
-    border-radius: 30px;
-
-    background: #FFD85A;
-
-    color: #07152E;
+.register-prompt a {
+    color: #ffe477;
 
     text-decoration: none;
 
     font-size: 13px;
-
-    font-weight: bold;
+    font-weight: 600;
 
     transition: 0.3s ease;
 }
 
-.service-btn:hover {
-    background: #FFF0A3;
+.register-prompt a:hover {
+    color: #ffffff;
 
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 25px rgba(255, 216, 90, 0.25);
+    text-shadow:
+        0 0 10px rgba(255, 220, 100, 0.3);
 }
 
 
-/* ==========================================
-   BOTTOM MESSAGE
-   ========================================== */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
-.services-bottom {
-    max-width: 700px;
-
-    margin: 70px auto 0;
-
+footer {
     text-align: center;
 
-    position: relative;
+    padding: 40px 20px 30px;
 
-    z-index: 2;
+    background: #06080d;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+    color: #777b87;
 }
 
-.bottom-line {
-    height: 1px;
-
-    width: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 216, 90, 0.3),
-            transparent
-        );
-
-    margin-bottom: 25px;
-}
-
-.bottom-content {
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 18px;
-}
-
-.bottom-content span {
-    color: #FFD85A;
+footer h3 {
+    color: #ffe477;
 
     font-size: 18px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
 }
 
-.bottom-content p {
-    color: #AFC9E5;
+footer p {
+    font-size: 11px;
 
-    font-size: 18px;
+    margin: 4px 0;
+
+    color: #777b87;
 }
 
-.bottom-content strong {
-    color: #FFD85A;
+footer small {
+    display: block;
+
+    margin-top: 18px;
+
+    font-size: 10px;
+
+    color: #555966;
 }
 
-.bottom-subtext {
-    margin-top: 5px;
 
-    color: #6887A8;
-
-    font-size: 12px;
-}
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
 
 
-/* ==========================================
-   ANIMATION
-   ========================================== */
+/* Tablets */
 
-@keyframes serviceTwinkle {
+@media (max-width: 900px) {
 
-    0%,
-    100% {
-        opacity: 0.5;
-
-        transform: scale(1);
+    .navbar {
+        padding: 15px 4%;
     }
 
-    50% {
-        opacity: 1;
+    .navbar nav {
+        gap: 16px;
+    }
 
-        transform: scale(1.15);
+    .login-page {
+        gap: 35px;
+        padding: 55px 4%;
+    }
+
+    .login-firefly {
+        width: 350px;
+        height: 450px;
+    }
+
+    .login-firefly video {
+        height: 450px;
+    }
+
+    .login-card {
+        max-width: 430px;
+        padding: 35px;
     }
 }
 
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
+/* Mobile */
 
-@media (max-width: 950px) {
+@media (max-width: 700px) {
 
-    .service-grid {
-    max-width: 1250px;
-    margin: 0 auto;
+    .navbar {
+        flex-direction: column;
 
-    display: grid;
+        gap: 15px;
 
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 28px;
-
-    position: relative;
-    z-index: 2;
-}
-
-    .service-card {
-        min-height: auto;
+        padding: 18px 20px;
     }
 
-}
+    .navbar nav {
+        flex-wrap: wrap;
 
-@media (max-width: 600px) {
+        justify-content: center;
 
-    .services-page {
-        padding: 55px 20px;
+        gap: 15px;
     }
 
-    .services-heading h2 {
-        font-size: 48px;
+    .logo-section {
+        justify-content: center;
     }
 
-    .services-tagline {
-        font-size: 16px;
+    .login-page {
+        flex-direction: column;
+
+        padding: 45px 20px;
+
+        gap: 35px;
     }
 
-    .service-card {
-        padding: 35px 25px 30px;
+    .login-firefly {
+        width: 100%;
+        max-width: 380px;
+
+        height: 300px;
     }
 
+    .login-firefly video {
+        height: 300px;
+    }
+
+    .login-card {
+        width: 100%;
+
+        padding: 32px 25px;
+
+        border-radius: 20px;
+    }
+
+    .login-card h2 {
+        font-size: 25px;
+    }
 }
 
-/* =========================================
-   CENTER LOGIN CARD
-   ========================================= */
 
-.login-page {
-    width: 92%;
-    min-height: 750px;
-    margin: 0 auto;
+/* Small phones */
 
-    position: relative;
+@media (max-width: 430px) {
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .logo-section h1 {
+        font-size: 21px;
+    }
 
-    padding: 60px 30px;
+    .logo-section p {
+        font-size: 9px;
+    }
+
+    .logo-image {
+        width: 44px;
+        height: 44px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+    .login-page {
+        padding: 35px 15px;
+    }
+
+    .login-card {
+        padding: 28px 20px;
+    }
+
+    .login-options {
+        font-size: 11px;
+    }
+
+    .login-firefly {
+        height: 250px;
+    }
+
+    .login-firefly video {
+        height: 250px;
+    }
 }
-.login-firefly {
-    display: none;
-}
 
-.login-card {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
