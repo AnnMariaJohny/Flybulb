@@ -1,0 +1,1843 @@
+/* =========================================
+   FLYBULB™
+   Magical Night Theme
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: #07152E;
+    color: #FFF8E7;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+    width: 92%;
+    margin: 20px auto;
+
+    min-height: 82px;
+
+    padding: 12px 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(10, 29, 56, 0.92);
+
+    border: 1px solid rgba(255, 216, 90, 0.25);
+
+    border-radius: 50px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(255, 216, 90, 0.08);
+
+    position: relative;
+    z-index: 10;
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-video {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+}
+
+.logo-video video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.logo-section h1 {
+    font-size: 30px;
+    letter-spacing: 2px;
+
+    color: #FFD85A;
+
+    line-height: 1;
+}
+
+.logo-section h1 span {
+    font-size: 12px;
+    vertical-align: top;
+
+    color: #FFF0A3;
+}
+
+.logo-section p {
+    margin-top: 5px;
+
+    font-size: 11px;
+    letter-spacing: 0.5px;
+
+    color: #BBD9F5;
+}
+
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+
+    color: #FFF8E7;
+
+    font-weight: bold;
+
+    padding: 12px 18px;
+
+    border-radius: 25px;
+
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #FFD85A;
+
+    background: rgba(255, 216, 90, 0.08);
+}
+
+nav a.active {
+    color: #07152E;
+
+    background: #FFD85A;
+
+    box-shadow:
+        0 0 15px rgba(255, 216, 90, 0.35);
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+   ========================================= */
+
+.login-btn {
+    background: #FFD85A !important;
+
+    color: #07152E !important;
+
+    padding: 12px 24px !important;
+
+    border-radius: 30px;
+
+    margin-left: 8px;
+
+    box-shadow:
+        0 0 15px rgba(255, 216, 90, 0.3);
+}
+
+.login-btn:hover {
+    background: #FFF0A3 !important;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.hero {
+    width: 92%;
+    min-height: 600px;
+
+    margin: 0 auto;
+
+    border-radius: 35px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 60px;
+
+    background:
+        radial-gradient(
+            circle at 30% 50%,
+            rgba(255, 216, 90, 0.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(60, 130, 200, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #07152E,
+            #0D2344,
+            #061329
+        );
+
+    border: 1px solid rgba(120, 180, 230, 0.15);
+
+    box-shadow:
+        inset 0 0 100px rgba(0, 0, 0, 0.25),
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   HERO DECORATIVE GLOW
+   ========================================= */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 216, 90, 0.08);
+
+    filter: blur(80px);
+
+    left: 5%;
+    top: 20%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   HERO FIREFLY
+   ========================================= */
+
+.hero-firefly {
+    width: 45%;
+
+    min-height: 420px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.hero-firefly::after {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 216, 90, 0.18);
+
+    filter: blur(55px);
+
+    z-index: -1;
+
+    animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+.hero-firefly video {
+    width: 100%;
+    max-width: 500px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    display: block;
+
+    border-radius: 25px;
+}
+
+
+/* =========================================
+   GLOW ANIMATION
+   ========================================= */
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        transform: scale(0.9);
+
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.15);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   HERO CONTENT
+   ========================================= */
+
+.hero-content {
+    width: 45%;
+
+    position: relative;
+
+    z-index: 3;
+}
+
+.small-heading {
+    color: #FFD85A;
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+
+    letter-spacing: 1px;
+}
+
+.hero-content h2 {
+    font-size: 42px;
+
+    line-height: 1.15;
+
+    color: #FFF8E7;
+
+    margin-bottom: 5px;
+}
+
+.hero-content h3 {
+    font-size: 82px;
+
+    line-height: 1;
+
+    margin: 10px 0 20px;
+
+    color: #FFD85A;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 10px rgba(255, 216, 90, 0.4),
+        0 0 30px rgba(255, 216, 90, 0.25);
+}
+
+
+/* =========================================
+   TAGLINE
+   ========================================= */
+
+.tagline {
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #BBD9F5;
+
+    max-width: 480px;
+}
+
+.tagline strong {
+    color: #FFF0A3;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.btn {
+    text-decoration: none;
+
+    padding: 14px 30px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    background: #FFD85A;
+
+    color: #07152E;
+
+    box-shadow:
+        0 0 20px rgba(255, 216, 90, 0.3);
+}
+
+.primary-btn:hover {
+    background: #FFF0A3;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 30px rgba(255, 216, 90, 0.5);
+}
+
+.secondary-btn {
+    border: 2px solid #FFD85A;
+
+    color: #FFD85A;
+
+    background: transparent;
+}
+
+.secondary-btn:hover {
+    background: #FFD85A;
+
+    color: #07152E;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   SERVICES PREVIEW
+   ========================================= */
+
+.services-preview {
+    width: 92%;
+
+    margin: 25px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.service-mini-card {
+    padding: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: #0D2344;
+
+    border: 1px solid rgba(255, 216, 90, 0.15);
+
+    border-radius: 20px;
+
+    transition: 0.3s ease;
+}
+
+.service-mini-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(255, 216, 90, 0.5);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        0 0 20px rgba(255, 216, 90, 0.08);
+}
+
+.service-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 216, 90, 0.12);
+
+    font-size: 23px;
+}
+
+.service-mini-card h4 {
+    color: #FFD85A;
+
+    margin-bottom: 5px;
+}
+
+.service-mini-card p {
+    color: #BBD9F5;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    margin-top: 30px;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    background: #061329;
+
+    border-top: 1px solid rgba(255, 216, 90, 0.15);
+}
+
+footer h3 {
+    color: #FFD85A;
+
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+footer p {
+    color: #BBD9F5;
+
+    margin: 5px;
+}
+
+footer small {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #6F91B3;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-direction: column;
+
+        gap: 15px;
+
+        border-radius: 25px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        padding: 50px 25px;
+
+        gap: 20px;
+    }
+
+    .hero-firefly,
+    .hero-content {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 34px;
+    }
+
+    .hero-content h3 {
+        font-size: 65px;
+    }
+
+    .tagline {
+        margin: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .services-preview {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   LOGIN PAGE
+   ========================================= */
+
+.login-page {
+    width: 92%;
+    min-height: 680px;
+    margin: 0 auto;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 30px;
+
+    background:
+        radial-gradient(
+            circle at 25% 50%,
+            rgba(255, 216, 90, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(60, 130, 200, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #07152E,
+            #0D2344,
+            #061329
+        );
+
+    border-radius: 35px;
+
+    border: 1px solid rgba(255, 216, 90, 0.12);
+
+    box-shadow:
+        inset 0 0 100px rgba(0, 0, 0, 0.25),
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   DECORATIVE BACKGROUND GLOW
+   ========================================= */
+
+.login-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    left: 5%;
+    top: 20%;
+
+    border-radius: 50%;
+
+    background: rgba(255, 216, 90, 0.08);
+
+    filter: blur(80px);
+
+    pointer-events: none;
+}
+
+.login-page::after {
+    content: "✷   ✦   ✯   ✧";
+
+    position: absolute;
+
+    top: 60px;
+    left: 70px;
+
+    color: rgba(255, 216, 90, 0.45);
+
+    font-size: 24px;
+
+    letter-spacing: 20px;
+
+    animation: twinkle 3s infinite ease-in-out;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   FIREFLY SIDE
+   ========================================= */
+
+.login-firefly {
+    width: 40%;
+    max-width: 450px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.login-firefly::before {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 216, 90, 0.2);
+
+    filter: blur(60px);
+
+    animation: loginGlow 2.5s infinite ease-in-out;
+}
+
+.login-firefly video {
+    width: 100%;
+    max-width: 430px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   LOGIN CARD
+   ========================================= */
+
+.login-card {
+    width: 470px;
+
+    padding: 42px 45px;
+
+    position: relative;
+
+    z-index: 5;
+
+    background: rgba(7, 21, 46, 0.92);
+
+    border: 1px solid rgba(255, 216, 90, 0.25);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(255, 216, 90, 0.08);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   CARD TOP DECORATION
+   ========================================= */
+
+.login-decoration {
+    width: 45px;
+    height: 45px;
+
+    margin: -65px auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #FFD85A;
+
+    color: #07152E;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 0 25px rgba(255, 216, 90, 0.45);
+}
+
+
+/* =========================================
+   LOGIN HEADING
+   ========================================= */
+
+.login-card h2 {
+    text-align: center;
+
+    color: #FFF8E7;
+
+    font-size: 31px;
+
+    line-height: 1.25;
+
+    margin-bottom: 10px;
+}
+
+.login-card h2 span {
+    display: block;
+
+    color: #FFD85A;
+
+    text-shadow:
+        0 0 15px rgba(255, 216, 90, 0.25);
+}
+
+.login-subtitle {
+    text-align: center;
+
+    color: #BBD9F5;
+
+    font-size: 14px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    color: #FFF0A3;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   INPUT BOX
+   ========================================= */
+
+.input-box {
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid rgba(187, 217, 245, 0.25);
+
+    border-radius: 15px;
+
+    background: rgba(13, 35, 68, 0.75);
+
+    transition: 0.3s ease;
+}
+
+.input-box:focus-within {
+    border-color: #FFD85A;
+
+    box-shadow:
+        0 0 15px rgba(255, 216, 90, 0.12);
+}
+
+.input-icon {
+    width: 50px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: #FFD85A;
+}
+
+.input-box input {
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #FFF8E7;
+
+    font-size: 14px;
+
+    font-family: inherit;
+}
+
+.input-box input::placeholder {
+    color: #6F91B3;
+}
+
+
+/* =========================================
+   PASSWORD TOGGLE
+   ========================================= */
+
+.password-toggle {
+    border: none;
+
+    background: transparent;
+
+    color: #BBD9F5;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    padding: 0 16px;
+
+    transition: 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #FFD85A;
+}
+
+
+/* =========================================
+   REMEMBER + FORGOT
+   ========================================= */
+
+.login-options {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin: 5px 0 25px;
+
+    font-size: 12px;
+}
+
+.remember-me {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #BBD9F5;
+
+    cursor: pointer;
+}
+
+.remember-me input {
+    accent-color: #FFD85A;
+
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #FFD85A;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #FFF0A3;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   LOGIN SUBMIT BUTTON
+   ========================================= */
+
+.login-submit {
+    width: 100%;
+
+    height: 55px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #FFD85A;
+
+    color: #07152E;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px rgba(255, 216, 90, 0.25);
+
+    transition: 0.3s ease;
+}
+
+.login-submit:hover {
+    background: #FFF0A3;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 30px rgba(255, 216, 90, 0.45);
+}
+
+.login-submit:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   DIVIDER
+   ========================================= */
+
+.login-divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 28px 0 22px;
+
+    color: #6F91B3;
+
+    font-size: 12px;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background: rgba(187, 217, 245, 0.18);
+}
+
+.login-divider span {
+    color: #6F91B3;
+}
+
+
+/* =========================================
+   REGISTER
+   ========================================= */
+
+.register-prompt {
+    text-align: center;
+}
+
+.register-prompt p {
+    color: #BBD9F5;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+}
+
+.register-prompt a {
+    color: #FFD85A;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+.register-prompt a:hover {
+    color: #FFF0A3;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes loginGlow {
+
+    0%,
+    100% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =========================================
+   LOGIN RESPONSIVE
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .login-page {
+        flex-direction: column;
+
+        padding: 60px 20px;
+    }
+
+    .login-firefly {
+        width: 70%;
+
+        max-width: 300px;
+    }
+
+    .login-card {
+        width: 100%;
+
+        max-width: 470px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .login-card {
+        padding: 35px 22px;
+
+        border-radius: 22px;
+    }
+
+    .login-card h2 {
+        font-size: 26px;
+    }
+
+    .login-options {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+/* =========================================
+   REGISTER PAGE
+   ========================================= */
+
+.register-page {
+    width: 92%;
+    min-height: 750px;
+
+    margin: 0 auto;
+
+    padding: 60px 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 70px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 216, 90, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(60, 130, 200, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #07152E,
+            #0D2344,
+            #061329
+        );
+
+    border-radius: 35px;
+
+    border: 1px solid rgba(255, 216, 90, 0.12);
+
+    box-shadow:
+        inset 0 0 100px rgba(0, 0, 0, 0.25),
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   BACKGROUND DECORATION
+   ========================================= */
+
+.register-page::before {
+    content: "✦     ✧          ✨       ✦";
+
+    position: absolute;
+
+    top: 55px;
+    right: 80px;
+
+    color: rgba(255, 216, 90, 0.35);
+
+    font-size: 24px;
+
+    letter-spacing: 12px;
+
+    animation: registerTwinkle 4s infinite ease-in-out;
+
+    pointer-events: none;
+}
+
+.register-page::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    right: -100px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 216, 90, 0.06);
+
+    filter: blur(80px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   FIREFLY SIDE
+   ========================================= */
+
+.register-firefly {
+    width: 42%;
+
+    max-width: 450px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.register-firefly video {
+    width: 100%;
+
+    max-width: 390px;
+
+    display: block;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* Golden glow behind firefly */
+
+.register-firefly::before {
+    content: "";
+
+    position: absolute;
+
+    width: 270px;
+    height: 270px;
+
+    left: 50%;
+    top: 35%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: rgba(255, 216, 90, 0.2);
+
+    filter: blur(65px);
+
+    animation: registerGlow 2.8s infinite ease-in-out;
+
+    z-index: -1;
+}
+
+
+/* =========================================
+   FIREFLY TEXT
+   ========================================= */
+
+.register-glow-text {
+    font-size: 28px;
+
+    color: #FFD85A;
+
+    margin-bottom: -10px;
+
+    position: relative;
+
+    z-index: 3;
+
+    animation: registerTwinkle 2s infinite ease-in-out;
+}
+
+.register-firefly h3 {
+    margin-top: 5px;
+
+    color: #FFF8E7;
+
+    font-size: 27px;
+
+    line-height: 1.3;
+}
+
+.register-firefly p {
+    margin-top: 12px;
+
+    color: #BBD9F5;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   REGISTER CARD
+   ========================================= */
+
+.register-card {
+    width: 500px;
+
+    padding: 38px 42px;
+
+    position: relative;
+
+    z-index: 5;
+
+    background: rgba(7, 21, 46, 0.94);
+
+    border: 1px solid rgba(255, 216, 90, 0.25);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(255, 216, 90, 0.08);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   REGISTER DECORATION
+   ========================================= */
+
+.register-decoration {
+    width: 45px;
+    height: 45px;
+
+    margin: -60px auto 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #FFD85A;
+
+    color: #07152E;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 0 25px rgba(255, 216, 90, 0.45);
+}
+
+
+/* =========================================
+   REGISTER HEADING
+   ========================================= */
+
+.register-card h2 {
+    text-align: center;
+
+    color: #FFF8E7;
+
+    font-size: 29px;
+
+    line-height: 1.25;
+
+    margin-bottom: 8px;
+}
+
+.register-card h2 span {
+    display: block;
+
+    color: #FFD85A;
+
+    text-shadow:
+        0 0 15px rgba(255, 216, 90, 0.25);
+}
+
+.register-subtitle {
+    text-align: center;
+
+    color: #BBD9F5;
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   REGISTER FORM
+   ========================================= */
+
+.register-card .form-group {
+    margin-bottom: 14px;
+}
+
+.register-card .form-group label {
+    display: block;
+
+    color: #FFF0A3;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 6px;
+}
+
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.register-card .input-box {
+    height: 47px;
+
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid rgba(187, 217, 245, 0.22);
+
+    border-radius: 13px;
+
+    background: rgba(13, 35, 68, 0.75);
+
+    transition: 0.3s ease;
+}
+
+.register-card .input-box:focus-within {
+    border-color: #FFD85A;
+
+    box-shadow:
+        0 0 15px rgba(255, 216, 90, 0.12);
+}
+
+.register-card .input-icon {
+    width: 45px;
+
+    text-align: center;
+
+    color: #FFD85A;
+
+    font-size: 16px;
+}
+
+.register-card .input-box input {
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #FFF8E7;
+
+    font-size: 13px;
+
+    font-family: inherit;
+
+    padding-right: 12px;
+}
+
+.register-card .input-box input::placeholder {
+    color: #6F91B3;
+}
+
+
+/* =========================================
+   FIREFLY ID
+   ========================================= */
+
+.firefly-id-box {
+    margin-top: 18px;
+
+    padding: 14px 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 216, 90, 0.07);
+
+    border: 1px dashed rgba(255, 216, 90, 0.4);
+}
+
+.id-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 216, 90, 0.12);
+
+    font-size: 17px;
+}
+
+.firefly-id-box span {
+    display: block;
+
+    color: #BBD9F5;
+
+    font-size: 11px;
+
+    margin-bottom: 4px;
+}
+
+.firefly-id-box strong {
+    display: block;
+
+    color: #FFD85A;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   GLOW POLICY
+   ========================================= */
+
+.glow-policy {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin: 18px 0;
+
+    color: #BBD9F5;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    cursor: pointer;
+}
+
+.glow-policy input {
+    margin-top: 2px;
+
+    accent-color: #FFD85A;
+
+    cursor: pointer;
+}
+
+.glow-policy a {
+    color: #FFD85A;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.glow-policy a:hover {
+    text-decoration: underline;
+
+    color: #FFF0A3;
+}
+
+
+/* =========================================
+   REGISTER BUTTON
+   ========================================= */
+
+.register-submit {
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #FFD85A;
+
+    color: #07152E;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px rgba(255, 216, 90, 0.25);
+
+    transition: 0.3s ease;
+}
+
+.register-submit:hover {
+    background: #FFF0A3;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 30px rgba(255, 216, 90, 0.45);
+}
+
+.register-submit:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   LOGIN LINK
+   ========================================= */
+
+.register-login {
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+.register-login p {
+    color: #BBD9F5;
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+}
+
+.register-login a {
+    color: #FFD85A;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.register-login a:hover {
+    color: #FFF0A3;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   REGISTER ANIMATIONS
+   ========================================= */
+
+@keyframes registerGlow {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(0.9);
+
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.15);
+
+        opacity: 1;
+    }
+}
+
+@keyframes registerTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.35;
+
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =========================================
+   REGISTER RESPONSIVE
+   ========================================= */
+
+@media (max-width: 950px) {
+
+    .register-page {
+        flex-direction: column;
+
+        gap: 30px;
+
+        padding: 70px 20px;
+    }
+
+    .register-firefly {
+        width: 70%;
+
+        max-width: 320px;
+    }
+
+    .register-card {
+        width: 100%;
+
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .register-page {
+        width: 95%;
+
+        padding: 60px 12px;
+    }
+
+    .register-card {
+        padding: 35px 20px;
+
+        border-radius: 22px;
+    }
+
+    .register-card h2 {
+        font-size: 25px;
+    }
+
+    .register-firefly h3 {
+        font-size: 23px;
+    }
+}
