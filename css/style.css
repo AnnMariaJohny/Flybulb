@@ -2298,10 +2298,18 @@ footer small {
 @media (max-width: 950px) {
 
     .service-grid {
-        grid-template-columns: 1fr;
+    max-width: 1250px;
+    margin: 0 auto;
 
-        max-width: 520px;
-    }
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 28px;
+
+    position: relative;
+    z-index: 2;
+}
 
     .service-card {
         min-height: auto;
