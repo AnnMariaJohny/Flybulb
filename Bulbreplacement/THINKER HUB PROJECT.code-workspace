@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../firefly"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "THINKER HUB PROJECT"
+	}
+}

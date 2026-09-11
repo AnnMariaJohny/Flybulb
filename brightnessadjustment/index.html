@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FLYBULB™ | Firefly Glow Upgrade</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">FLYBULB™</div>
+        <div class="navbar-links">
+                <a href="../FLYBULB/FLYBULB/assets/index.html#services"
+                    onclick="goToServicesHub(); return false;"
+                    class="nav-back">← Back to Services</a>
+            <a href="../FLYBULB/FLYBULB/assets/index.html">Home</a>
+            <a href="../about.html">About</a>
+            <span class="nav-icon">♡</span>
+            <span class="nav-icon">♟</span>
+        </div>
+    </nav>
+
+    <!-- ==================================================
+         MAIN PAGE
+    ================================================== -->
+
+    <main class="brightness-page">
+
+
+        <!-- ==================================================
+             INTRO
+        ================================================== -->
+
+        <section class="intro">
+
+            <h1>
+                Too dark? Your firefly is barely surviving<br>
+                Let’s find its perfect glow! ✨✨✨
+            </h1>
+
+            <p>
+                Adjust the brightness and find the perfect glow
+                for your little firefly.
+            </p>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             BEFORE / AFTER
+        ================================================== -->
+
+        <section class="comparison-section">
+
+
+            <!-- BEFORE -->
+
+            <div class="image-box">
+
+                <h2>
+                    🌙 BEFORE — Original
+                </h2>
+
+                <img
+                    src="image/first%20image.png"
+                    alt="Original firefly"
+                >
+
+            </div>
+
+
+
+            <!-- AFTER -->
+
+            <div class="image-box">
+
+                <h2>
+                    ✨ AFTER — Your Glow
+                </h2>
+
+                <img
+                    id="afterImage"
+                    src="image/first%20image.png"
+                    alt="Brightness adjusted firefly"
+                >
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             BRIGHTNESS SLIDER
+        ================================================== -->
+
+        <section class="slider-section">
+
+            <h2>
+
+                Brightness:
+
+                <span id="brightnessValue">
+                    0%
+                </span>
+
+            </h2>
+
+
+            <input
+                type="range"
+                id="brightnessSlider"
+                min="0"
+                max="100"
+                value="0"
+            >
+
+
+            <div class="slider-labels">
+
+                <span>0%</span>
+
+                <span>25%</span>
+
+                <span>50%</span>
+
+                <span>75%</span>
+
+                <span>100%</span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             GLOW WORKERS SECTION
+        ================================================== -->
+
+        <section class="order-section">
+
+
+            <h2>
+                💡 Send the Glow Workers
+            </h2>
+
+
+            <!-- SELECTED BRIGHTNESS -->
+
+            <div
+                class="selected-glow"
+                style="
+                    text-align:center;
+                    padding:20px;
+                    margin-bottom:25px;
+                    border-radius:18px;
+                    background:rgba(255,211,77,0.07);
+                    border:1px solid rgba(255,211,77,0.25);
+                "
+            >
+
+                <div
+                    style="
+                        color:#8faac2;
+                        font-size:14px;
+                        margin-bottom:6px;
+                    "
+                >
+                    Your Selected Glow
+                </div>
+
+
+                <strong
+                    id="selectedBrightness"
+                    style="
+                        color:#ffd34d;
+                        font-size:32px;
+                    "
+                >
+                    0%
+                </strong>
+
+            </div>
+
+
+
+            <!-- FIRELY NAME -->
+
+            <div class="form-group">
+
+                <label for="fireflyName">
+                    🪰 Firefly Name
+                </label>
+
+                <input
+                    type="text"
+                    id="fireflyName"
+                    placeholder="Give your firefly a name 🪰"
+                >
+
+            </div>
+
+
+
+            <!-- ADDRESS -->
+
+            <div class="form-group">
+
+                <label for="address">
+                    📍 Firefly Address
+                </label>
+
+                <textarea
+                    id="address"
+                    placeholder="Where should our Glow Workers come? 🏠"
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- SEND TO PAYMENT -->
+
+            <button
+                class="submit-btn"
+                id="sendGlowButton"
+                type="button"
+            >
+
+                ✨ Send My Firefly to the Glow Workers
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PAYMENT SECTION
+             HIDDEN INITIALLY
+        ================================================== -->
+
+        <section
+            class="order-section payment-section"
+            id="paymentSection"
+            style="display:none;"
+        >
+
+
+            <h2>
+                💳 Complete Your Glow Upgrade...Our glow workers will be reach you in 24 hours
+            </h2>
+
+
+            <p
+                style="
+                    text-align:center;
+                    color:#a9c1d8;
+                    margin-bottom:25px;
+                    line-height:1.6;
+                "
+            >
+                The Glow Workers are ready! ✨
+                Choose how you'd like to pay.
+            </p>
+
+
+
+            <!-- ==============================================
+                 ORDER SUMMARY
+            ============================================== -->
+
+            <div
+                style="
+                    padding:20px;
+                    margin-bottom:25px;
+                    border-radius:18px;
+                    background:rgba(255,211,77,0.06);
+                    border:1px solid rgba(255,211,77,0.22);
+                "
+            >
+
+                <h3
+                    style="
+                        color:#ffd34d;
+                        margin-bottom:18px;
+                    "
+                >
+                    🪰 Order Summary
+                </h3>
+
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        margin-bottom:12px;
+                    "
+                >
+
+                    <span style="color:#8faac2;">
+                        Firefly
+                    </span>
+
+                    <strong id="summaryName">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        margin-bottom:12px;
+                    "
+                >
+
+                    <span style="color:#8faac2;">
+                        Brightness
+                    </span>
+
+                    <strong
+                        id="summaryBrightness"
+                        style="color:#ffd34d;"
+                    >
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                    "
+                >
+
+                    <span style="color:#8faac2;">
+                        Glow Upgrade
+                    </span>
+
+                    <strong>
+                        ₹499
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==============================================
+                 PAYMENT METHODS
+            ============================================== -->
+
+            <div class="form-group">
+
+                <label>
+                    Select Payment Method
+                </label>
+
+
+                <div class="payment-options">
+
+
+                    <!-- UPI -->
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="UPI"
+                        >
+
+                        UPI 📱
+
+                    </label>
+
+
+
+                    <!-- CARD -->
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Card"
+                        >
+
+                        Card 💳
+
+                    </label>
+
+
+
+                    <!-- CASH -->
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Cash"
+                        >
+
+                        Cash 💵
+
+                    </label>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==============================================
+                 TOTAL
+            ============================================== -->
+
+            <div
+                style="
+                    text-align:center;
+                    padding:20px;
+                    margin:25px 0;
+                    border-radius:18px;
+                    background:
+                        linear-gradient(
+                            135deg,
+                            rgba(255,211,77,0.12),
+                            rgba(255,211,77,0.03)
+                        );
+                    border:1px solid rgba(255,211,77,0.3);
+                "
+            >
+
+                <div
+                    style="
+                        color:#8faac2;
+                        font-size:14px;
+                        margin-bottom:7px;
+                    "
+                >
+                    Total Amount
+                </div>
+
+
+                <div
+                    style="
+                        color:#ffd34d;
+                        font-size:40px;
+                        font-weight:900;
+                    "
+                >
+                    ₹499
+                </div>
+
+            </div>
+
+
+
+            <!-- ==============================================
+                 CONFIRM PAYMENT
+            ============================================== -->
+
+            <button
+                class="submit-btn"
+                id="confirmPayment"
+                type="button"
+            >
+
+                ✨ Confirm Payment.... 🪰✨
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PROFESSOR PINCER QUOTE
+        ================================================== -->
+
+        <section class="quote-section">
+
+            <p>
+
+                <strong>
+                    Professor Pincer (Firefly Parent):
+                </strong>
+
+                "I used to think my firefly was just lazy,
+                but it turned out to be a 40-watt deficiency.
+                Thanks to FLYBULB™, he's flying straight into
+                walls with absolute confidence."
+
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================================================
+         GENERAL ERROR POPUP
+    ================================================== -->
+
+    <div
+        id="popupOverlay"
+        class="popup-overlay"
+    >
+
+
+        <div
+            id="popupBox"
+            class="popup-box error"
+        >
+
+
+            <button
+                class="popup-close"
+                id="popupClose"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <div
+                id="popupIcon"
+                class="popup-icon"
+            >
+                💡
+            </div>
+
+
+            <h2 id="popupTitle">
+                Wait, bro! 😭
+            </h2>
+
+
+            <p id="popupMessage">
+                Something is missing.
+            </p>
+
+
+            <button
+                id="popupButton"
+                class="popup-button"
+                type="button"
+            >
+                Okay ✨
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         PAYMENT COMPLETED POPUP
+    ================================================== -->
+
+    <div
+        id="paymentSuccessOverlay"
+        class="payment-popup-overlay"
+    >
+
+
+        <div class="payment-popup-box">
+
+
+            <!-- FLOATING SPARKLES -->
+
+            <div class="success-particles">
+
+                <span>✦</span>
+                <span>✧</span>
+                <span>✨</span>
+                <span>✦</span>
+                <span>✧</span>
+                <span>✨</span>
+
+            </div>
+
+
+
+            <!-- SUCCESS ICON -->
+
+            <div class="payment-success-icon">
+
+                ✓
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <h2>
+                Payment Completed! ✨
+            </h2>
+
+
+
+            <p>
+                Your payment has been successfully received.Our firefly glow workers will reach you in 24 hours to complete the glow upgrade. Thank you for choosing Flybulb™ ✨ 
+
+
+
+            </p>
+
+
+
+            <!-- FIREFLY MESSAGE -->
+
+            <div class="payment-firefly-message">
+
+                🪰✨
+
+                <strong id="successFireflyName">
+                    Your firefly
+                </strong>
+
+                is officially getting its glow upgrade!
+
+            </div>
+
+
+
+            <!-- SUCCESS DETAILS -->
+
+            <div class="success-details">
+
+
+                <div>
+
+                    <span>
+                        Brightness
+                    </span>
+
+                    <strong id="successBrightness">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Payment
+                    </span>
+
+                    <strong id="successPayment">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong class="paid-status">
+                        ✓ PAID
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- DONE -->
+
+            <button
+                class="payment-done-btn"
+                id="paymentDone"
+                type="button"
+            >
+
+                ✨ Glow Upgrade Confirmed
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,925 @@
+/* =========================================
+   FLYBULB - COLOR CHANGE SERVICE
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #183967 0%,
+            #0b1d38 45%,
+            #071426 100%
+        );
+    color: white;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8%;
+
+    border-bottom: 1px solid rgba(255, 211, 70, 0.25);
+
+    background: rgba(5, 18, 36, 0.85);
+
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+
+    color: #ffd447;
+
+    letter-spacing: 1px;
+}
+
+.back-btn {
+    color: #dce8f7;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    color: #ffd447;
+}
+
+
+/* =========================================
+   MAIN PAGE
+========================================= */
+
+.page {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 55px 0 80px;
+}
+
+
+/* =========================================
+   SCREEN / PAGE TRANSITIONS
+========================================= */
+
+.screen {
+    display: none;
+
+    animation: fadeIn 0.45s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+    text-align: center;
+
+    margin-bottom: 12px;
+}
+
+.heading h1 {
+    font-size: 38px;
+
+    color: white;
+
+    margin-bottom: 12px;
+}
+
+.heading p {
+    color: #9db2cb;
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   FUNNY INTRO QUOTE
+========================================= */
+
+.intro {
+    text-align: center;
+
+    margin: 28px auto 42px;
+}
+
+.intro p {
+    color: #c7d5e8;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+.intro strong {
+    color: #ffd447;
+}
+
+
+/* =========================================
+   COLOR OPTIONS
+========================================= */
+
+.color-options {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+
+/* =========================================
+   COLOR CARD
+========================================= */
+
+.color-card {
+
+    position: relative;
+
+    min-height: 210px;
+
+    padding: 28px 20px;
+
+    border: 1.5px solid #d6ad2c;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 48, 80, 0.95),
+            rgba(7, 26, 48, 0.98)
+        );
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Hover */
+
+.color-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: #ffd447;
+
+    box-shadow:
+        0 12px 35px rgba(255, 211, 71, 0.15);
+}
+
+
+/* Selected */
+
+.color-card.selected {
+
+    border: 2px solid #ffd447;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 212, 71, 0.1),
+        0 12px 35px rgba(255, 212, 71, 0.2);
+}
+
+
+/* =========================================
+   COLOR ICON
+========================================= */
+
+.color-icon {
+
+    font-size: 52px;
+
+    margin-bottom: 15px;
+
+    transition: transform 0.3s ease;
+}
+
+.color-card:hover .color-icon {
+
+    transform: scale(1.15);
+
+}
+
+
+/* =========================================
+   COLOR TITLE
+========================================= */
+
+.color-card h2 {
+
+    font-size: 21px;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.price {
+
+    color: #ffd447;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   WARRANTY
+========================================= */
+
+.warranty {
+
+    margin-top: 12px;
+
+    font-size: 12px;
+
+    color: #9db2cb;
+}
+
+
+/* =========================================
+   CUSTOM COLOR CARD
+========================================= */
+
+.custom-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(34, 43, 91, 0.95),
+            rgba(10, 27, 54, 0.98)
+        );
+}
+
+.custom-card .color-icon {
+
+    font-size: 44px;
+}
+
+
+/* =========================================
+   BUTTON AREA
+========================================= */
+
+.continue-area {
+
+    text-align: center;
+
+    margin-top: 42px;
+}
+
+
+/* =========================================
+   MAIN BUTTON
+========================================= */
+
+.main-btn {
+
+    border: none;
+
+    background: #ffd447;
+
+    color: #071426;
+
+    padding: 16px 50px;
+
+    border-radius: 35px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.main-btn:hover {
+
+    transform: scale(1.04);
+
+    box-shadow:
+        0 8px 25px rgba(255, 212, 71, 0.3);
+}
+
+
+/* Disabled */
+
+.main-btn:disabled {
+
+    opacity: 0.45;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================
+   ORDER SUMMARY
+========================================= */
+
+.summary-wrapper {
+
+    max-width: 600px;
+
+    margin: 40px auto;
+}
+
+
+/* Summary Card */
+
+.summary-card {
+
+    border: 1.5px solid #d6ad2c;
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 48, 80, 0.95),
+            rgba(7, 26, 48, 0.98)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Summary Heading */
+
+.summary-title {
+
+    color: #ffd447;
+
+    text-align: center;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    margin-bottom: 30px;
+}
+
+
+/* Summary Rows */
+
+.summary-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 17px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.summary-row:last-child {
+
+    border-bottom: none;
+}
+
+
+/* Left text */
+
+.summary-row span:first-child {
+
+    color: #9db2cb;
+}
+
+
+/* Right text */
+
+.summary-row span:last-child {
+
+    font-weight: bold;
+
+    text-align: right;
+}
+
+
+/* Amount */
+
+.amount {
+
+    color: #ffd447 !important;
+
+    font-size: 22px;
+}
+
+
+/* =========================================
+   PAYMENT METHODS
+========================================= */
+
+.payment-options {
+
+    max-width: 650px;
+
+    margin: 40px auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+/* Payment Card */
+
+.payment-card {
+
+    padding: 25px;
+
+    border:
+        1.5px solid #34516f;
+
+    border-radius: 18px;
+
+    background:
+        rgba(12, 35, 61, 0.9);
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    text-align: center;
+}
+
+
+/* Hover */
+
+.payment-card:hover {
+
+    border-color: #ffd447;
+
+    transform: translateY(-3px);
+}
+
+
+/* Selected */
+
+.payment-card.selected {
+
+    border-color: #ffd447;
+
+    background:
+        rgba(255, 212, 71, 0.08);
+
+    box-shadow:
+        0 0 20px rgba(255, 212, 71, 0.08);
+}
+
+
+/* Payment Icon */
+
+.payment-icon {
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Payment title */
+
+.payment-card h3 {
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   AMOUNT PAYABLE
+========================================= */
+
+.payable {
+
+    text-align: center;
+
+    margin: 35px 0;
+}
+
+.payable small {
+
+    display: block;
+
+    color: #9db2cb;
+
+    margin-bottom: 8px;
+}
+
+.payable strong {
+
+    font-size: 36px;
+
+    color: #ffd447;
+}
+
+
+/* =========================================
+   SUCCESS CARD
+========================================= */
+
+.success-card {
+
+    max-width: 650px;
+
+    margin: 45px auto;
+
+    padding: 40px;
+
+    text-align: center;
+
+    border:
+        1.5px solid #d6ad2c;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 48, 80, 0.95),
+            rgba(7, 26, 48, 0.98)
+        );
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,0.25);
+}
+
+
+/* Success Icon */
+
+.success-icon {
+
+    font-size: 65px;
+
+    margin-bottom: 15px;
+
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* Success heading */
+
+.success-card h2 {
+
+    color: #ffd447;
+
+    margin-bottom: 12px;
+}
+
+
+/* Success paragraph */
+
+.success-card > p {
+
+    color: #b9c9dc;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   WORKER ALERT
+========================================= */
+
+.worker-alert {
+
+    margin: 28px 0;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0, 190, 100, 0.08);
+
+    border:
+        1px solid rgba(0, 220, 120, 0.35);
+
+    color: #8ff0ba;
+
+    font-weight: bold;
+
+    animation: notificationPulse 2s infinite;
+}
+
+
+@keyframes notificationPulse {
+
+    0% {
+        box-shadow: 0 0 0 rgba(0, 220, 120, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px rgba(0, 220, 120, 0.12);
+    }
+
+    100% {
+        box-shadow: 0 0 0 rgba(0, 220, 120, 0);
+    }
+
+}
+
+
+/* =========================================
+   SERVICE DETAILS
+========================================= */
+
+.service-details {
+
+    text-align: left;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================
+   STEP INDICATOR
+========================================= */
+
+.steps {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 45px;
+}
+
+
+/* Circle */
+
+.step {
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #172e4a;
+
+    color: #8094ad;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Active */
+
+.step.active {
+
+    background: #ffd447;
+
+    color: #071426;
+
+    box-shadow:
+        0 0 15px rgba(255, 212, 71, 0.3);
+}
+
+
+/* Step line */
+
+.step-line {
+
+    width: 45px;
+
+    height: 2px;
+
+    background: #29435e;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 850px) {
+
+    .color-options {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    header {
+
+        padding: 0 5%;
+
+    }
+
+
+    .page {
+
+        width: 92%;
+
+        padding-top: 35px;
+
+    }
+
+
+    .heading h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .heading p {
+
+        font-size: 14px;
+
+    }
+
+
+    .color-options {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .payment-options {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .summary-card,
+    .success-card {
+
+        padding: 25px;
+
+    }
+
+
+    .main-btn {
+
+        width: 100%;
+
+    }
+
+
+    .steps {
+
+        gap: 7px;
+
+    }
+
+
+    .step-line {
+
+        width: 25px;
+
+    }
+
+
+    .summary-row {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .heading h1 {
+
+        font-size: 24px;
+
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+
+    }
+
+
+    .step {
+
+        width: 30px;
+
+        height: 30px;
+
+    }
+
+}

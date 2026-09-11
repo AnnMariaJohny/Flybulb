@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About EvAnn Enterprises | FLYBULB™</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at 50% 0%, #183967 0%, #0b1d38 45%, #071426 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           NAVIGATION BAR
+        ======================================== */
+
+        .navbar {
+            background: rgba(5, 18, 36, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 212, 71, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffd447;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-logo:hover {
+            text-shadow: 0 0 15px rgba(255, 212, 71, 0.5);
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: #dce8f7;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-links a.nav-back {
+            color: #ffd447;
+            font-weight: 600;
+        }
+
+        .navbar-links a.nav-back:hover {
+            text-shadow: 0 0 10px rgba(255, 212, 71, 0.5);
+        }
+
+        .navbar-links a:hover {
+            color: #ffd447;
+        }
+
+        .navbar-links a.active {
+            color: #ffd447;
+            font-weight: bold;
+        }
+
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd447;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icon {
+            color: #dce8f7;
+            font-size: 16px;
+            cursor: default;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon:hover {
+            color: #ffd447;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+
+        .hero {
+            text-align: center;
+            padding: 80px 40px;
+            background: radial-gradient(circle at 50% -50%, rgba(255, 212, 71, 0.1) 0%, transparent 70%);
+            border-bottom: 1px solid rgba(255, 212, 71, 0.2);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(120px, 0.7fr) auto minmax(120px, 0.7fr);
+            align-items: center;
+            gap: 30px;
+        }
+
+        .hero-logo {
+            width: min(100%, 220px);
+            justify-self: center;
+            filter: drop-shadow(0 0 24px rgba(255, 212, 71, 0.25));
+            animation: heroLogoFloat 4s ease-in-out infinite;
+        }
+
+        .hero-logo.right {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes heroLogoFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .hero-copy {
+            min-width: 0;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            color: #ffd447;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(255, 212, 71, 0.5);
+            }
+
+            50% {
+                text-shadow: 0 0 40px rgba(255, 212, 71, 0.8);
+            }
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #dce8f7;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        /* ========================================
+           SECTION STYLES
+        ======================================== */
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            border-bottom: 1px solid rgba(255, 212, 71, 0.1);
+        }
+
+        section h2 {
+            font-size: 40px;
+            color: #ffd447;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        section h3 {
+            font-size: 24px;
+            color: #ffd447;
+            margin-bottom: 20px;
+        }
+
+        /* ========================================
+           ABOUT US SECTION
+        ======================================== */
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #dce8f7;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        /* ========================================
+           WHAT FIREFLY DOES - CARDS
+        ======================================== */
+
+        .firefly-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(30, 60, 110, 0.6);
+            border: 2px solid rgba(255, 212, 71, 0.3);
+            border-radius: 15px;
+            padding: 40px 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(255, 212, 71, 0.1), transparent);
+            transition: left 0.4s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: #ffd447;
+            background: rgba(30, 60, 110, 0.9);
+            box-shadow: 0 15px 40px rgba(255, 212, 71, 0.25);
+        }
+
+        .card-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .card-icon:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .card-icon:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .card-icon:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .card h3 {
+            font-size: 22px;
+            color: #ffd447;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #dce8f7;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           POWER CUTS SECTION
+        ======================================== */
+
+        .power-cuts {
+            background: rgba(30, 60, 110, 0.4);
+            border-left: 4px solid #ffd447;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            max-width: 900px;
+            margin: 40px auto 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .power-cuts-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .power-cuts h3 {
+            font-size: 22px;
+            color: #ffd447;
+            margin-bottom: 15px;
+        }
+
+        .power-cuts p {
+            font-size: 16px;
+            color: #dce8f7;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ========================================
+           VISION SECTION
+        ======================================== */
+
+        .vision-box {
+            background: rgba(30, 60, 110, 0.5);
+            border: 2px solid rgba(255, 212, 71, 0.4);
+            border-radius: 15px;
+            padding: 50px 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 30px auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .vision-box p {
+            font-size: 20px;
+            color: #ffd447;
+            font-weight: 500;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* ========================================
+           CTA BUTTON
+        ======================================== */
+
+        .cta-button-container {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 50px;
+            background-color: #ffd447;
+            color: #071426;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid #ffd447;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: #ffd447;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 212, 71, 0.3);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        footer {
+            background: rgba(5, 18, 36, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 212, 71, 0.2);
+        }
+
+        footer h3 {
+            color: #ffd447;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        footer p {
+            color: #dce8f7;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 5px;
+        }
+
+        footer small {
+            color: rgba(220, 232, 247, 0.7);
+            font-size: 12px;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .navbar-links {
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .navbar-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+
+            .hero-copy {
+                grid-column: 1 / -1;
+                grid-row: 1;
+            }
+
+            .hero-logo {
+                width: min(100%, 150px);
+                grid-row: 2;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+
+            section h2 {
+                font-size: 32px;
+            }
+
+            .firefly-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .card-icon {
+                font-size: 50px;
+            }
+
+            .power-cuts {
+                padding: 30px 20px;
+                margin: 30px 0 0 0;
+            }
+
+            .vision-box {
+                padding: 30px 20px;
+            }
+
+            .vision-box p {
+                font-size: 18px;
+            }
+
+            .cta-button {
+                padding: 14px 40px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .about-text {
+                font-size: 14px;
+            }
+
+            .card {
+                padding: 25px 15px;
+            }
+
+            .card-icon {
+                font-size: 45px;
+            }
+
+            .card h3 {
+                font-size: 18px;
+            }
+
+            .card p {
+                font-size: 13px;
+            }
+
+            .vision-box p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ========================================
+         NAVBAR
+    ======================================== -->
+
+    <nav class="navbar">
+        <a href="about.html" class="navbar-logo">FLYBULB™</a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-back">← Back to Services</a>
+            <a href="FLYBULB/FLYBULB/assets/index.html">Home</a>
+            <a href="about.html">About</a>
+            <span class="nav-icon">♡</span>
+            <span class="nav-icon">♟</span>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+
+    <section class="hero">
+        <div class="hero-content">
+            <img class="hero-logo"
+                 src="Bulbreplacement/images/logo.png"
+                 alt="FLYBULB Firefly logo">
+
+            <div class="hero-copy">
+                <h1>About EvAnn Enterprises</h1>
+                <p>Smart lighting solutions designed for everyday needs.</p>
+            </div>
+
+            <img class="hero-logo right"
+                 src="Bulbreplacement/images/logo.png"
+                 alt="FLYBULB Firefly logo">
+        </div>
+    </section>
+
+    <!-- ========================================
+         ABOUT US SECTION
+    ======================================== -->
+
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-text">
+            <p>
+                EvAnn Enterprises Private Limited is committed to delivering practical and innovative lighting solutions
+                through the Firefly Bulb project. We focus on making everyday lighting more convenient, flexible, and
+                useful for households. Our mission is to enhance the way people interact with their lighting needs through
+                intelligent, user-friendly products and services.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================
+         WHAT FIREFLY DOES SECTION
+    ======================================== -->
+
+    <section id="what-firefly">
+        <h2>What Firefly Does</h2>
+        <div class="firefly-cards">
+            <!-- Card 1: Bulb Replacement -->
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>Bulb Replacement</h3>
+                <p>Easy and convenient bulb replacement services. Get professional assistance to swap out your firefly bulbs
+                    with ease.</p>
+            </div>
+
+            <!-- Card 2: Brightness Adjustment -->
+            <div class="card">
+                <div class="card-icon">☀️</div>
+                <h3>Brightness Adjustment</h3>
+                <p>Adjust the brightness according to your needs. Find the perfect glow for any time of day or occasion.</p>
+            </div>
+
+            <!-- Card 3: Color Change -->
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Color Change</h3>
+                <p>Customize the color of your lighting to match your mood and style. Express yourself through light.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         POWER CUTS SECTION
+    ======================================== -->
+
+    <section id="power-cuts">
+        <h2>Useful During Power Cuts</h2>
+        <div class="power-cuts">
+            <div class="power-cuts-icon">💡✨</div>
+            <h3>Emergency Lighting Solution</h3>
+            <p>
+                Firefly can also be useful during current/power cuts, providing a convenient lighting solution when regular
+                household lighting is unavailable. While it complements your household setup, Firefly offers practical
+                illumination support during unexpected power interruptions, giving you reliable light when you need it most.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================
+         OUR VISION SECTION
+    ======================================== -->
+
+    <section id="vision">
+        <h2>Our Vision</h2>
+        <div class="vision-box">
+            <p>
+                "To make everyday lighting more convenient, flexible, and useful through practical innovation."
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CTA SECTION
+    ======================================== -->
+
+    <section>
+        <div class="cta-button-container">
+            <button class="cta-button" onclick="goToServices()">Explore Firefly Services →</button>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer>
+        <h3>FLYBULB™</h3>
+        <p>Professional Firefly Illumination Services</p>
+        <p>By EvAnn Enterprises Private Limited</p>
+        <small>© 2026 FLYBULB™ — Because every firefly deserves better lighting. ✨</small>
+    </footer>
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+
+    <script>
+        /* =========================================
+           NAVIGATION FUNCTION
+        ========================================= */
+
+        function goToServices() {
+            window.location.href = "FLYBULB/FLYBULB/assets/index.html#services";
+        }
+
+        /* =========================================
+           SMOOTH SCROLLING FOR NAV LINKS
+        ========================================= */
+
+        document.querySelectorAll('.navbar-links a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const section = document.querySelector(href);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else if (href === 'index.html') {
+                    window.location.href = href;
+                }
+            });
+        });
+
+        /* =========================================
+           CARD ANIMATION ON SCROLL
+        ========================================= */
+
+        const cards = document.querySelectorAll('.card');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+
+</html>

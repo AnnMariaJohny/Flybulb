@@ -1,0 +1,1061 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --navy: #061b2f;
+    --navy-light: #0b2942;
+    --yellow: #ffd34d;
+    --yellow-dark: #e7b92f;
+    --white: #ffffff;
+    --muted: #91b6d8;
+    --border: rgba(255, 211, 77, 0.48);
+    --card: rgba(7, 31, 51, 0.78);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--navy);
+    color: var(--white);
+    font-family: "Poppins", sans-serif;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    height: 70px;
+    width: 100%;
+    padding: 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #041426;
+    position: relative;
+    z-index: 20;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-image {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.logo-text h1 {
+    margin: 0;
+    color: var(--yellow);
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logo-text h1 span {
+    font-size: 9px;
+    vertical-align: top;
+}
+
+.logo-text p {
+    display: none;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar nav a,
+.nav-icon {
+    color: #d5e1ec;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color .2s ease;
+}
+
+.navbar nav a:hover,
+.nav-icon:hover {
+    color: var(--yellow);
+}
+
+.navbar nav .active {
+    color: var(--yellow);
+    font-weight: 700;
+}
+
+.nav-icon {
+    font-size: 17px;
+}
+
+/* =====================================================
+   MAIN / WELCOME
+===================================================== */
+
+main {
+    min-height: calc(100vh - 70px);
+}
+
+.bulb-welcome {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, .72fr);
+    align-items: center;
+
+    padding: 34px 7%;
+    gap: 55px;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(255, 211, 77, .08),
+            transparent 32%
+        ),
+        linear-gradient(135deg, #0a2942 0%, #061d33 55%, #061b2f 100%);
+}
+
+/* Welcome text block */
+
+.bulb-welcome > .section-small-title,
+.bulb-welcome > h2,
+.bulb-welcome > .welcome-description,
+.bulb-welcome > .welcome-options {
+    grid-column: 1;
+}
+
+/*
+   The existing HTML places the welcome text before
+   .welcome-options. These styles turn that content
+   into a compact left-side hero.
+*/
+
+.bulb-welcome {
+    position: relative;
+}
+
+/* Small title */
+
+.section-small-title {
+    margin: 0;
+    color: var(--yellow);
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+/* Main welcome heading */
+
+.bulb-welcome > h2 {
+    margin: 13px 0 0;
+
+    max-width: 570px;
+
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: .98;
+    letter-spacing: -2px;
+    font-weight: 800;
+
+    color: var(--white);
+}
+
+.bulb-welcome > h2 span {
+    color: var(--yellow) !important;
+}
+
+/* Description */
+
+.welcome-description {
+    max-width: 500px;
+    margin: 17px 0 0;
+
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.welcome-logo-panel {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    justify-self: end;
+}
+
+.welcome-logo-panel img {
+    width: min(100%, 300px);
+    height: auto;
+    filter: drop-shadow(0 0 28px rgba(255, 211, 77, .2));
+    animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* =====================================================
+   WELCOME OPTIONS
+   If these two cards are still required, they remain
+   compact instead of consuming the whole page.
+===================================================== */
+
+.welcome-options {
+    display: grid;
+    grid-template-columns: 1fr 100px 1fr;
+    align-items: center;
+
+    gap: 18px;
+    width: 100%;
+    max-width: none;
+    grid-column: 1 / -1;
+    margin-top: 25px;
+}
+
+.bulb-welcome > .welcome-options {
+    grid-column: 1 / -1;
+}
+
+.bulb-option {
+    min-height: 220px;
+    padding: 28px;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background: rgba(6, 28, 47, .58);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+.bulb-option:hover {
+    transform: translateY(-4px);
+    border-color: var(--yellow);
+    background: rgba(10, 43, 67, .8);
+}
+
+.option-number {
+    display: block;
+    color: var(--yellow);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.bulb-shape {
+    width: 50px;
+    height: 50px;
+    margin: 8px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: rgba(255, 211, 77, .1);
+}
+
+.bulb-glow {
+    font-size: 27px;
+}
+
+.bulb-option h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+.bulb-option p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.option-button {
+    margin-top: 16px;
+    color: var(--yellow);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.welcome-firefly {
+    text-align: center;
+}
+
+.firefly-image-circle {
+    width: 75px;
+    height: 75px;
+    margin: auto;
+
+    border-radius: 50%;
+    border: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 211, 77, .05);
+}
+
+.firefly-image-circle img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.welcome-firefly p {
+    margin: 8px 0 0;
+    color: #9db8ce;
+    font-size: 9px;
+}
+
+/* =====================================================
+   OPTIONAL HERO VIDEO
+   Use these classes if your welcome HTML contains
+   .welcome-video-section / .video-container.
+===================================================== */
+
+.welcome-video-section {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    width: min(100%, 430px);
+    height: 520px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 28px;
+
+    background: #061b2f;
+
+    box-shadow:
+        0 22px 60px rgba(0, 0, 0, .35),
+        0 0 35px rgba(255, 211, 77, .08);
+}
+
+.welcome-video {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/* =====================================================
+   SERVICE SCREENS
+===================================================== */
+
+.service-screen {
+    min-height: calc(100vh - 70px);
+    padding: 38px 7% 60px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 211, 77, .055),
+            transparent 30%
+        ),
+        var(--navy);
+}
+
+.back-button {
+    padding: 9px 17px;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background: transparent;
+    color: var(--yellow);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.back-button:hover {
+    background: var(--yellow);
+    color: var(--navy);
+}
+
+.screen-heading {
+    max-width: 700px;
+    margin: 42px auto 30px;
+    text-align: center;
+}
+
+.screen-heading .section-small-title {
+    margin-bottom: 10px;
+}
+
+.screen-heading h2 {
+    margin: 0;
+
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1;
+
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.screen-heading h2 span {
+    color: var(--yellow) !important;
+}
+
+.screen-heading > p:last-child {
+    margin: 13px auto 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* =====================================================
+   REPLACEMENT / EXCHANGE CARDS
+===================================================== */
+
+.replacement-levels,
+.exchange-levels {
+    max-width: 850px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.level-card,
+.exchange-level-card {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 105px 1fr 130px;
+    align-items: center;
+
+    min-height: 105px;
+    padding: 18px 22px;
+
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 18px;
+
+    background: var(--card);
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.level-card:hover,
+.exchange-level-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border);
+}
+
+.level-card.selected,
+.exchange-level-card.selected {
+    border-color: var(--yellow);
+    background: rgba(255, 211, 77, .07);
+}
+
+.level-left,
+.exchange-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.level-number {
+    color: var(--yellow);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.level-icon,
+.exchange-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    background: rgba(255, 211, 77, .08);
+
+    font-size: 23px;
+}
+
+.level-info h3,
+.exchange-info h3 {
+    margin: 0 0 4px;
+    font-size: 17px;
+}
+
+.level-info p,
+.exchange-info p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.level-price,
+.exchange-price {
+    text-align: right;
+}
+
+.level-price strong,
+.exchange-price strong {
+    display: block;
+    margin-bottom: 8px;
+
+    color: var(--yellow);
+    font-size: 20px;
+}
+
+.level-price button,
+.exchange-price button {
+    padding: 7px 17px;
+
+    border: 1px solid var(--yellow);
+    border-radius: 18px;
+
+    background: transparent;
+    color: var(--yellow);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.level-price button:hover,
+.exchange-price button:hover {
+    background: var(--yellow);
+    color: var(--navy);
+}
+
+.popular-label {
+    position: absolute;
+    top: -9px;
+    right: 20px;
+
+    padding: 4px 10px;
+
+    border-radius: 10px;
+
+    background: var(--yellow);
+    color: var(--navy);
+
+    font-size: 8px;
+    font-weight: 800;
+}
+
+/* =====================================================
+   SELECTED SERVICE
+===================================================== */
+
+.selected-service {
+    max-width: 850px;
+    margin: 25px auto 0;
+
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 25px;
+
+    padding: 17px 20px;
+
+    border: 1px solid rgba(255, 211, 77, .2);
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, .035);
+}
+
+.selected-info p {
+    margin: 0 0 3px;
+    color: #7597b6;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.selected-info h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.selected-price {
+    text-align: right;
+}
+
+.selected-price span {
+    color: #7597b6;
+    font-size: 9px;
+}
+
+.selected-price h2 {
+    margin: 0;
+    color: var(--yellow);
+    font-size: 22px;
+}
+
+#continueButton,
+#exchangeContinueButton {
+    padding: 11px 19px;
+
+    border: 0;
+    border-radius: 22px;
+
+    background: var(--yellow);
+    color: var(--navy);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#continueButton:disabled,
+#exchangeContinueButton:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+/* =====================================================
+   PAYMENT
+===================================================== */
+
+.payment-box {
+    width: min(100%, 580px);
+    margin: 80px auto;
+
+    padding: 42px;
+
+    border: 1px solid var(--border);
+    border-radius: 25px;
+
+    background: rgba(6, 28, 47, .75);
+
+    text-align: center;
+}
+
+.payment-box h2 {
+    margin: 12px 0 8px;
+
+    font-size: 48px;
+    line-height: 1;
+
+    font-weight: 800;
+}
+
+.payment-box h2 span {
+    color: var(--yellow) !important;
+}
+
+.payment-box > p:not(.section-small-title) {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.payment-summary {
+    margin: 28px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 17px 20px;
+
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .045);
+
+    text-align: left;
+}
+
+.payment-summary span {
+    color: #7597b6;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.payment-summary h3 {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.payment-summary h2 {
+    margin: 3px 0 0;
+    color: var(--yellow);
+    font-size: 24px;
+}
+
+.payment-button {
+    width: 100%;
+    padding: 14px;
+
+    border: 0;
+    border-radius: 25px;
+
+    background: var(--yellow);
+    color: var(--navy);
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.payment-button:hover {
+    background: #ffe071;
+}
+
+/* =====================================================
+   SUCCESS MODAL
+===================================================== */
+
+.success-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-modal.show {
+    display: flex;
+}
+
+.success-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(1, 12, 23, .78);
+    backdrop-filter: blur(8px);
+}
+
+.success-card {
+    position: relative;
+    z-index: 2;
+
+    width: min(92%, 470px);
+    padding: 38px;
+
+    border: 1px solid var(--border);
+    border-radius: 25px;
+
+    background: #08233a;
+
+    text-align: center;
+
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+}
+
+.success-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    border: 0;
+    background: transparent;
+
+    color: #9ab1c5;
+    font-size: 25px;
+}
+
+.success-glow {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.success-check {
+    width: 58px;
+    height: 58px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--navy);
+
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.success-small {
+    margin: 17px 0 5px;
+
+    color: var(--yellow);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.success-card h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.success-message {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.success-details {
+    margin: 24px 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.success-details > div {
+    padding: 14px;
+
+    border-radius: 13px;
+    background: rgba(255, 255, 255, .045);
+}
+
+.success-details span {
+    display: block;
+    margin-bottom: 5px;
+
+    color: #7597b6;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.success-details strong {
+    color: var(--yellow);
+    font-size: 13px;
+}
+
+.success-button {
+    width: 100%;
+    padding: 12px;
+
+    border: 0;
+    border-radius: 23px;
+
+    background: var(--yellow);
+    color: var(--navy);
+
+    font-weight: 700;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 30px 7%;
+
+    border-top: 1px solid rgba(255, 211, 77, .12);
+
+    background: #041426;
+    text-align: center;
+}
+
+footer h2 {
+    margin: 0;
+    color: var(--yellow);
+    font-size: 20px;
+}
+
+footer h2 span {
+    font-size: 9px;
+    vertical-align: top;
+}
+
+footer p {
+    margin: 6px 0 0;
+    color: #7898b3;
+    font-size: 11px;
+}
+
+footer .copyright {
+    margin-top: 12px;
+    color: #506d85;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .navbar nav {
+        gap: 12px;
+    }
+
+    .navbar nav a {
+        font-size: 11px;
+    }
+
+    .bulb-welcome {
+        grid-template-columns: 1fr;
+        padding: 45px 7%;
+        gap: 40px;
+    }
+
+    .welcome-video-section {
+        grid-column: 1;
+        grid-row: auto;
+        order: 5;
+    }
+
+    .video-container {
+        width: min(100%, 390px);
+        height: 470px;
+    }
+
+    .welcome-options {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-logo-panel {
+        grid-column: 1;
+        grid-row: auto;
+        min-height: 180px;
+        order: 4;
+    }
+
+    .welcome-firefly {
+        display: none;
+    }
+
+    .level-card,
+    .exchange-level-card {
+        grid-template-columns: 80px 1fr auto;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 62px;
+    }
+
+    .logo-text h1 {
+        font-size: 17px;
+    }
+
+    .navbar nav a:not(.active),
+    .nav-icon {
+        display: none;
+    }
+
+    main {
+        min-height: calc(100vh - 62px);
+    }
+
+    .bulb-welcome {
+        min-height: calc(100vh - 62px);
+        padding: 38px 24px;
+    }
+
+    .bulb-welcome > h2 {
+        font-size: 43px;
+    }
+
+    .welcome-description {
+        font-size: 13px;
+    }
+
+    .video-container {
+        height: 410px;
+        border-radius: 23px;
+    }
+
+    .level-card,
+    .exchange-level-card {
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+    }
+
+    .level-left,
+    .exchange-left {
+        grid-column: 1;
+    }
+
+    .level-info,
+    .exchange-info {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .level-price,
+    .exchange-price {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .selected-service {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .selected-price {
+        text-align: left;
+    }
+
+    .payment-box {
+        margin: 40px auto;
+        padding: 27px 20px;
+    }
+
+    .payment-box h2 {
+        font-size: 38px;
+    }
+}

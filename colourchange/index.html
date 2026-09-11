@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Color Change | FLYBULB</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 50% 0%, #183967 0%, #0b1d38 45%, #071426 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        /* Navbar */
+        .navbar {
+            background: rgba(5, 18, 36, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 212, 71, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffd447;
+            letter-spacing: 1px;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: #dce8f7;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-links a.nav-back {
+            color: #ffd447;
+            font-weight: 600;
+        }
+
+        .navbar-links a.nav-back:hover {
+            text-shadow: 0 0 10px rgba(255, 212, 71, 0.5);
+        }
+
+        .navbar-links a:hover {
+            color: #ffd447;
+        }
+
+        .nav-icon {
+            color: #dce8f7;
+            font-size: 16px;
+            cursor: default;
+            transition: all 0.3s ease;
+        }
+
+        .nav-icon:hover {
+            color: #ffd447;
+        }
+
+        header {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            border-bottom: 1px solid rgba(255, 211, 70, 0.25);
+            background: rgba(5, 18, 36, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffd447;
+            letter-spacing: 1px;
+        }
+
+        .back-btn {
+            color: #dce8f7;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .page {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 55px 0 80px;
+        }
+
+        .screen {
+            display: none;
+            animation: fadeIn 0.45s ease;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .heading h1 {
+            font-size: 38px;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .heading p {
+            color: #9db2cb;
+            font-size: 16px;
+        }
+
+        /* =========================
+           FUNNY INTRO
+        ========================= */
+
+        .intro {
+            text-align: center;
+            margin: 28px auto 42px;
+        }
+
+        .intro p {
+            color: #c7d5e8;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .intro strong {
+            color: #ffd447;
+        }
+
+        /* =========================
+           COLOR OPTIONS
+        ========================= */
+
+        .color-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .color-card {
+            position: relative;
+            min-height: 210px;
+            padding: 28px 20px;
+            border: 1.5px solid #d6ad2c;
+            border-radius: 24px;
+            background: linear-gradient(
+                145deg,
+                rgba(18, 48, 80, 0.95),
+                rgba(7, 26, 48, 0.98)
+            );
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .color-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 35px rgba(255, 211, 71, 0.15);
+            border-color: #ffd447;
+        }
+
+        .color-card.selected {
+            border: 2px solid #ffd447;
+            box-shadow:
+                0 0 0 3px rgba(255, 212, 71, 0.1),
+                0 12px 35px rgba(255, 212, 71, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .color-icon {
+            font-size: 52px;
+            margin-bottom: 15px;
+        }
+
+        .color-card h2 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: #ffd447;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .warranty {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #9db2cb;
+        }
+
+        .custom-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(34, 43, 91, 0.95),
+                    rgba(10, 27, 54, 0.98)
+                );
+        }
+
+        .custom-card .color-icon {
+            font-size: 44px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .continue-area {
+            text-align: center;
+            margin-top: 42px;
+        }
+
+        .main-btn {
+            border: none;
+            background: #ffd447;
+            color: #071426;
+            padding: 16px 50px;
+            border-radius: 35px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .main-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 25px rgba(255, 212, 71, 0.3);
+        }
+
+        .main-btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* =========================
+           SUMMARY CARD
+        ========================= */
+
+        .summary-wrapper {
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .summary-card {
+            border: 1.5px solid #d6ad2c;
+            border-radius: 25px;
+            padding: 35px;
+            background: linear-gradient(
+                145deg,
+                rgba(18, 48, 80, 0.95),
+                rgba(7, 26, 48, 0.98)
+            );
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .summary-title {
+            color: #ffd447;
+            text-align: center;
+            font-size: 21px;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 17px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        .summary-row span:first-child {
+            color: #9db2cb;
+        }
+
+        .summary-row span:last-child {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .amount {
+            color: #ffd447 !important;
+            font-size: 22px;
+        }
+
+        /* =========================
+           PAYMENT
+        ========================= */
+
+        .payment-options {
+            max-width: 650px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .payment-card {
+            padding: 25px;
+            border: 1.5px solid #34516f;
+            border-radius: 18px;
+            background: rgba(12, 35, 61, 0.9);
+            cursor: pointer;
+            transition: 0.25s;
+            text-align: center;
+        }
+
+        .payment-card:hover {
+            border-color: #ffd447;
+            transform: translateY(-3px);
+        }
+
+        .payment-card.selected {
+            border-color: #ffd447;
+            background: rgba(255, 212, 71, 0.08);
+        }
+
+        .payment-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .payment-card h3 {
+            font-size: 16px;
+        }
+
+        .payable {
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        .payable small {
+            display: block;
+            color: #9db2cb;
+            margin-bottom: 8px;
+        }
+
+        .payable strong {
+            font-size: 36px;
+            color: #ffd447;
+        }
+
+        /* =========================
+           SUCCESS / WORKER ALERT
+        ========================= */
+
+        .success-card {
+            max-width: 650px;
+            margin: 45px auto;
+            padding: 40px;
+            text-align: center;
+            border: 1.5px solid #d6ad2c;
+            border-radius: 28px;
+            background: linear-gradient(
+                145deg,
+                rgba(18, 48, 80, 0.95),
+                rgba(7, 26, 48, 0.98)
+            );
+            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+        }
+
+        .success-icon {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .success-card h2 {
+            color: #ffd447;
+            margin-bottom: 12px;
+        }
+
+        .success-card > p {
+            color: #b9c9dc;
+            line-height: 1.7;
+        }
+
+        .worker-alert {
+            margin: 28px 0;
+            padding: 18px;
+            border-radius: 15px;
+            background: rgba(0, 190, 100, 0.08);
+            border: 1px solid rgba(0, 220, 120, 0.35);
+            color: #8ff0ba;
+            font-weight: bold;
+        }
+
+        .service-details {
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        /* =========================
+           STEPS
+        ========================= */
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 45px;
+        }
+
+        .step {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #172e4a;
+            color: #8094ad;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .step.active {
+            background: #ffd447;
+            color: #071426;
+        }
+
+        .step-line {
+            width: 45px;
+            height: 2px;
+            background: #29435e;
+            align-self: center;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .color-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            .navbar-links {
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .navbar-links a {
+                font-size: 12px;
+            }
+
+            header {
+                padding: 0 5%;
+            }
+
+            .page {
+                width: 92%;
+                padding-top: 35px;
+            }
+
+            .heading h1 {
+                font-size: 28px;
+            }
+
+            .color-options {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-options {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-card,
+            .success-card {
+                padding: 25px;
+            }
+
+            .main-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="navbar-logo">FLYBULB™</div>
+    <div class="navbar-links">
+          <a href="../FLYBULB/FLYBULB/assets/index.html#services"
+              onclick="goServicesHub(); return false;"
+              class="nav-back">← Back to Services</a>
+        <a href="../FLYBULB/FLYBULB/assets/index.html">Home</a>
+        <a href="../about.html">About</a>
+        <span class="nav-icon">♡</span>
+        <span class="nav-icon">♟</span>
+    </div>
+</nav>
+
+
+<main class="page">
+
+    <!-- =========================
+         STEP INDICATOR
+    ========================= -->
+
+    <div class="steps">
+        <div class="step active" id="step1">1</div>
+        <div class="step-line"></div>
+        <div class="step" id="step2">2</div>
+        <div class="step-line"></div>
+        <div class="step" id="step3">3</div>
+        <div class="step-line"></div>
+        <div class="step" id="step4">4</div>
+    </div>
+
+
+    <!-- =========================
+         PAGE 1
+         CHOOSE COLOR
+    ========================= -->
+
+    <section class="screen active" id="page1">
+
+        <div class="heading">
+            <h1>✨ Choose Your Firefly Glow</h1>
+
+            <p>
+                Give your little firefly a color makeover.
+            </p>
+        </div>
+
+        <div class="intro">
+
+            <p>
+                <strong>Default color? Boring. 😭</strong><br>
+                <strong>New color? Interesting. 👀</strong><br>
+                Let’s give this bug a makeover! ✨
+            </p>
+
+        </div>
+
+
+        <div class="color-options">
+
+            <!-- RED -->
+
+            <div
+                class="color-card"
+                data-color="🔴 Red"
+                data-price="399"
+                data-warranty="40 Days"
+                onclick="selectColor(this)"
+            >
+
+                <div class="color-icon">🔴</div>
+
+                <h2>Red</h2>
+
+                <div class="price">₹399</div>
+
+                <div class="warranty">
+                    🛡️ 40 Days Warranty
+                </div>
+
+            </div>
+
+
+            <!-- GREEN -->
+
+            <div
+                class="color-card"
+                data-color="🟢 Green"
+                data-price="399"
+                data-warranty="40 Days"
+                onclick="selectColor(this)"
+            >
+
+                <div class="color-icon">🟢</div>
+
+                <h2>Green</h2>
+
+                <div class="price">₹399</div>
+
+                <div class="warranty">
+                    🛡️ 40 Days Warranty
+                </div>
+
+            </div>
+
+
+            <!-- BLUE -->
+
+            <div
+                class="color-card"
+                data-color="🔵 Blue"
+                data-price="399"
+                data-warranty="40 Days"
+                onclick="selectColor(this)"
+            >
+
+                <div class="color-icon">🔵</div>
+
+                <h2>Blue</h2>
+
+                <div class="price">₹399</div>
+
+                <div class="warranty">
+                    🛡️ 40 Days Warranty
+                </div>
+
+            </div>
+
+
+            <!-- CUSTOM -->
+
+            <div
+                class="color-card custom-card"
+                data-color="🌈 Custom Combination"
+                data-price="1000"
+                data-warranty="1,000 Days"
+                onclick="selectColor(this)"
+            >
+
+                <div class="color-icon">🌈</div>
+
+                <h2>Custom</h2>
+
+                <div class="price">₹1,000</div>
+
+                <div class="warranty">
+                    🛡️ 1,000 Days Warranty
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="continue-area">
+
+            <button
+                class="main-btn"
+                id="continueBtn"
+                disabled
+                onclick="goToSummary()"
+            >
+                Continue →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 2
+         ORDER SUMMARY
+    ========================= -->
+
+    <section class="screen" id="page2">
+
+        <div class="heading">
+
+            <h1>💳 Your Glow Service</h1>
+
+            <p>
+                Almost there, glow master.
+            </p>
+
+        </div>
+
+
+        <div class="summary-wrapper">
+
+            <div class="summary-card">
+
+                <div class="summary-title">
+                    YOUR GLOW SERVICE
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span id="summaryLabel">
+                        Selected Color
+                    </span>
+
+                    <span id="summaryColor">
+                        🔴 Red
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Service</span>
+
+                    <span id="summaryService">
+                        Firefly Color Change
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Amount</span>
+
+                    <span class="amount" id="summaryAmount">
+                        ₹399
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Warranty</span>
+
+                    <span id="summaryWarranty">
+                        40 Days
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="continue-area">
+
+            <button class="main-btn" onclick="goToPayment()">
+                Continue to Payment →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 3
+         PAYMENT
+    ========================= -->
+
+    <section class="screen" id="page3">
+
+        <div class="heading">
+
+            <h1>💳 Select Your Payment Method</h1>
+
+            <p>
+                Choose how you want to pay for your glow upgrade.
+            </p>
+
+        </div>
+
+
+        <div class="payment-options">
+
+            <div
+                class="payment-card"
+                onclick="selectPayment(this)"
+            >
+
+                <div class="payment-icon">📱</div>
+
+                <h3>UPI</h3>
+
+            </div>
+
+
+            <div
+                class="payment-card"
+                onclick="selectPayment(this)"
+            >
+
+                <div class="payment-icon">💳</div>
+
+                <h3>Credit / Debit Card</h3>
+
+            </div>
+
+
+            <div
+                class="payment-card"
+                onclick="selectPayment(this)"
+            >
+
+                <div class="payment-icon">🏦</div>
+
+                <h3>Net Banking</h3>
+
+            </div>
+
+
+            <div
+                class="payment-card"
+                onclick="selectPayment(this)"
+            >
+
+                <div class="payment-icon">💵</div>
+
+                <h3>Cash on Service</h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="payable">
+
+            <small>Amount Payable</small>
+
+            <strong id="paymentAmount">
+                ₹399
+            </strong>
+
+        </div>
+
+
+        <div class="continue-area">
+
+            <button
+                class="main-btn"
+                id="payBtn"
+                disabled
+                onclick="completePayment()"
+            >
+                Pay ₹399 →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 4
+         WORKER ALERT
+    ========================= -->
+
+    <section class="screen" id="page4">
+
+        <div class="success-card">
+
+            <div class="success-icon">
+                🟢
+            </div>
+
+
+            <h2>
+                PAYMENT SUCCESSFUL
+            </h2>
+
+
+            <p>
+                Your Color Change Service has been confirmed!
+            </p>
+
+
+            <div class="worker-alert">
+
+                🔔 Firefly Service Team Alerted
+
+                <br><br>
+
+                Worker Notification: SENT ✅
+
+            </div>
+
+
+            <p>
+                Our service workers have received your request
+                and will process your Firefly’s new glow.
+            </p>
+
+
+            <div class="service-details">
+
+                <div class="summary-row">
+
+                    <span>Service</span>
+
+                    <span>Color Change</span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span id="finalColorLabel">
+                        Color
+                    </span>
+
+                    <span id="finalColor">
+                        🔵 Blue
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Amount</span>
+
+                    <span class="amount" id="finalAmount">
+                        ₹399
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>Warranty</span>
+
+                    <span id="finalWarranty">
+                        40 Days
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="continue-area">
+
+                <button
+                    class="main-btn"
+                    onclick="goServicesHub()"
+                >
+                    Back to Home
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+    /* =========================
+       VARIABLES
+    ========================= */
+
+    let selectedColor = null;
+    let selectedPrice = 399;
+    let selectedWarranty = "40 Days";
+    let selectedPayment = null;
+
+
+    /* =========================
+       SELECT COLOR
+    ========================= */
+
+    function selectColor(card) {
+
+        document
+            .querySelectorAll(".color-card")
+            .forEach(item => {
+                item.classList.remove("selected");
+            });
+
+        card.classList.add("selected");
+
+        selectedColor = card.dataset.color;
+
+        selectedPrice = Number(card.dataset.price);
+
+        selectedWarranty = card.dataset.warranty;
+
+        document.getElementById("continueBtn").disabled = false;
+
+    }
+
+
+    /* =========================
+       GO TO SUMMARY
+    ========================= */
+
+    function goToSummary() {
+
+        if (!selectedColor) {
+            return;
+        }
+
+        const isCustom =
+            selectedColor.includes("Custom");
+
+        document.getElementById("summaryLabel").textContent =
+            isCustom
+                ? "Selected Combination"
+                : "Selected Color";
+
+        document.getElementById("summaryColor").textContent =
+            isCustom
+                ? "❤️💙💚 Custom"
+                : selectedColor;
+
+        document.getElementById("summaryService").textContent =
+            isCustom
+                ? "Custom Color Change"
+                : "Firefly Color Change";
+
+        document.getElementById("summaryAmount").textContent =
+            "₹" + selectedPrice.toLocaleString("en-IN");
+
+        document.getElementById("summaryWarranty").textContent =
+            selectedWarranty;
+
+        showPage(2);
+
+    }
+
+
+    /* =========================
+       GO TO PAYMENT
+    ========================= */
+
+    function goToPayment() {
+
+        document.getElementById("paymentAmount").textContent =
+            "₹" + selectedPrice.toLocaleString("en-IN");
+
+        document.getElementById("payBtn").textContent =
+            "Pay ₹" + selectedPrice.toLocaleString("en-IN") + " →";
+
+        showPage(3);
+
+    }
+
+
+    /* =========================
+       SELECT PAYMENT
+    ========================= */
+
+    function selectPayment(card) {
+
+        document
+            .querySelectorAll(".payment-card")
+            .forEach(item => {
+                item.classList.remove("selected");
+            });
+
+        card.classList.add("selected");
+
+        selectedPayment = card.querySelector("h3").textContent;
+
+        document.getElementById("payBtn").disabled = false;
+
+    }
+
+
+    /* =========================
+       COMPLETE PAYMENT
+    ========================= */
+
+    function completePayment() {
+
+        if (!selectedPayment) {
+            return;
+        }
+
+        const isCustom =
+            selectedColor.includes("Custom");
+
+        document.getElementById("finalColor").textContent =
+            isCustom
+                ? "❤️💙💚 Custom Combination"
+                : selectedColor;
+
+        document.getElementById("finalAmount").textContent =
+            "₹" + selectedPrice.toLocaleString("en-IN");
+
+        document.getElementById("finalWarranty").textContent =
+            selectedWarranty;
+
+        showPage(4);
+
+    }
+
+
+    /* =========================
+       PAGE SWITCHING
+    ========================= */
+
+    function showPage(pageNumber) {
+
+        document
+            .querySelectorAll(".screen")
+            .forEach(screen => {
+                screen.classList.remove("active");
+            });
+
+        document
+            .getElementById("page" + pageNumber)
+            .classList.add("active");
+
+
+        /* Update step indicator */
+
+        document
+            .querySelectorAll(".step")
+            .forEach(step => {
+                step.classList.remove("active");
+            });
+
+        document
+            .getElementById("step" + pageNumber)
+            .classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* =========================
+       HOME
+    ========================= */
+
+    function goServicesHub() {
+
+        const servicesPath = "../FLYBULB/FLYBULB/assets/index.html#services";
+
+        if (document.referrer.includes("/FLYBULB/FLYBULB/assets/index.html")) {
+            window.history.back();
+            return;
+        }
+
+        window.location.href = servicesPath;
+
+    }
+
+</script>
+
+</body>
+</html>

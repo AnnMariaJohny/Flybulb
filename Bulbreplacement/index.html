@@ -1,0 +1,1162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Bulb Replacement | FLYBULB</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <img src="images/logo.png"
+             alt="FLYBULB Logo"
+             class="logo-image">
+
+        <div class="logo-text">
+
+            <h1>
+                FLYBULB<span>™</span>
+            </h1>
+
+            <p>
+                Professional Firefly Illumination Services
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+          <a href="../FLYBULB/FLYBULB/assets/index.html#services"
+              onclick="goToServicesHub(); return false;"
+              class="active">
+            ← Back to Services
+        </a>
+
+        <a href="../FLYBULB/FLYBULB/assets/index.html">
+            Home
+        </a>
+
+        <a href="../about.html">
+            About
+        </a>
+
+        <span class="nav-icon">
+            ♡
+        </span>
+
+        <span class="nav-icon">
+            ♙
+        </span>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     WELCOME SCREEN
+===================================================== -->
+
+<section id="welcomeScreen"
+         class="bulb-welcome">
+
+
+    <p class="section-small-title">
+
+        ✨ WELCOME TO FLYBULB™ ✨
+
+    </p>
+
+
+    <h2>
+
+        Is your firefly's
+        light feeling a little...
+
+        <br>
+
+        <span style="color:#ffd34d;">
+            DIM?
+        </span>
+
+    </h2>
+
+
+    <p class="welcome-description">
+
+        Choose what you want to do with your little glowbug.
+
+    </p>
+
+    <div class="welcome-logo-panel">
+
+        <img src="images/logo.png"
+             alt="FLYBULB Firefly logo">
+
+    </div>
+
+
+
+    <!-- =================================================
+         TWO MAIN OPTIONS
+    ================================================= -->
+
+    <div class="welcome-options">
+
+
+        <!-- OPTION 01 -->
+
+        <div class="bulb-option"
+             onclick="openReplacement()">
+
+            <span class="option-number">
+                01
+            </span>
+
+
+            <div class="bulb-shape">
+
+                <div class="bulb-glow">
+                    💡
+                </div>
+
+            </div>
+
+
+            <h3>
+                Bulb Replacement
+            </h3>
+
+
+            <p>
+
+                Replace your old firefly bulb
+                with a fresh and brighter glow.
+
+            </p>
+
+
+            <div class="option-button">
+
+                Choose Replacement →
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CENTER FIREFLY -->
+
+        <div class="welcome-firefly">
+
+            <div class="firefly-image-circle">
+
+                <img src="images/logo.png"
+                     alt="FLYBULB Firefly">
+
+            </div>
+
+
+            <p>
+
+                ✨ Your glowbug is waiting ✨
+
+            </p>
+
+        </div>
+
+
+
+        <!-- OPTION 02 -->
+
+        <div class="bulb-option"
+             onclick="openExchange()">
+
+            <span class="option-number">
+                02
+            </span>
+
+
+            <div class="bulb-shape">
+
+                <div class="bulb-glow">
+                    🔄
+                </div>
+
+            </div>
+
+
+            <h3>
+                Old Bulb Exchange
+            </h3>
+
+
+            <p>
+
+                Got an old bulb?
+                Exchange it for a special FLYBULB offer.
+
+            </p>
+
+
+            <div class="option-button">
+
+                Exchange Old Bulb →
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BULB REPLACEMENT SCREEN
+===================================================== -->
+
+<section id="replacementScreen"
+         class="service-screen hidden">
+
+
+    <button class="back-button"
+            onclick="goToServicesHub()">
+
+        ← Back to Services
+
+    </button>
+
+
+
+    <div class="screen-heading">
+
+        <p class="section-small-title">
+
+            💡 FLYBULB SERVICE 01
+
+        </p>
+
+
+        <h2>
+
+            Choose Your
+            <span style="color:#ffd34d;">
+                Replacement
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Select the perfect bulb upgrade
+            for your little firefly.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- =================================================
+         REPLACEMENT LEVELS
+    ================================================= -->
+
+    <div class="replacement-levels">
+
+
+        <!-- BEGINNER -->
+
+        <div class="level-card"
+             onclick="selectReplacement(
+                'Beginner Bulb Replacement',
+                299,
+                this
+             )">
+
+
+            <div class="level-left">
+
+                <span class="level-number">
+                    01
+                </span>
+
+
+                <div class="level-icon">
+                    🌱
+                </div>
+
+            </div>
+
+
+
+            <div class="level-info">
+
+                <h3>
+                    Beginner
+                </h3>
+
+
+                <p>
+
+                    A simple glow upgrade
+                    for your little firefly.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="level-price">
+
+                <strong>
+                    ₹299
+                </strong>
+
+
+                <button type="button"
+                        onclick="
+                            event.stopPropagation();
+                            selectReplacement(
+                                'Beginner Bulb Replacement',
+                                299,
+                                this.parentElement.parentElement
+                            );
+                        ">
+
+                    Select
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PRO -->
+
+        <div class="level-card pro-level"
+             onclick="selectReplacement(
+                'Pro Bulb Replacement',
+                699,
+                this
+             )">
+
+
+            <div class="popular-label">
+
+                MOST POPULAR ✨
+
+            </div>
+
+
+            <div class="level-left">
+
+                <span class="level-number">
+                    02
+                </span>
+
+
+                <div class="level-icon">
+                    ⚡
+                </div>
+
+            </div>
+
+
+
+            <div class="level-info">
+
+                <h3>
+                    Pro
+                </h3>
+
+
+                <p>
+
+                    For fireflies that demand
+                    extra brightness.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="level-price">
+
+                <strong>
+                    ₹699
+                </strong>
+
+
+                <button type="button"
+                        onclick="
+                            event.stopPropagation();
+                            selectReplacement(
+                                'Pro Bulb Replacement',
+                                699,
+                                this.parentElement.parentElement
+                            );
+                        ">
+
+                    Select
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PREMIUM -->
+
+        <div class="level-card"
+             onclick="selectReplacement(
+                'Premium Bulb Replacement',
+                1499,
+                this
+             )">
+
+
+            <div class="level-left">
+
+                <span class="level-number">
+                    03
+                </span>
+
+
+                <div class="level-icon">
+                    👑
+                </div>
+
+            </div>
+
+
+
+            <div class="level-info">
+
+                <h3>
+                    Premium
+                </h3>
+
+
+                <p>
+
+                    Maximum glow for
+                    maximum firefly vibes.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="level-price">
+
+                <strong>
+                    ₹1499
+                </strong>
+
+
+                <button type="button"
+                        onclick="
+                            event.stopPropagation();
+                            selectReplacement(
+                                'Premium Bulb Replacement',
+                                1499,
+                                this.parentElement.parentElement
+                            );
+                        ">
+
+                    Select
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         SELECTED SERVICE
+    ================================================= -->
+
+    <div class="selected-service">
+
+
+        <div class="selected-info">
+
+            <p>
+                YOUR SELECTION
+            </p>
+
+
+            <h3 id="selectedService">
+
+                No service selected
+
+            </h3>
+
+        </div>
+
+
+
+        <div class="selected-price">
+
+            <span>
+                Total
+            </span>
+
+
+            <h2 id="selectedPrice">
+                ₹0
+            </h2>
+
+        </div>
+
+
+
+        <button id="continueButton"
+                onclick="continueToPayment()"
+                disabled>
+
+            Confirm & Continue →
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     OLD BULB EXCHANGE SCREEN
+===================================================== -->
+
+<section id="exchangeScreen"
+         class="service-screen hidden">
+
+
+    <button class="back-button"
+            onclick="goToServicesHub()">
+
+        ← Back to Services
+
+    </button>
+
+
+
+    <div class="screen-heading">
+
+        <p class="section-small-title">
+
+            🔄 FLYBULB SERVICE 02
+
+        </p>
+
+
+        <h2>
+
+            Old Bulb
+            <span style="color:#ffd34d;">
+                Exchange
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            The older the bulb,
+            the more ridiculous the exchange.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- =================================================
+         EXCHANGE LEVELS
+    ================================================= -->
+
+    <div class="exchange-levels">
+
+
+        <!-- 1 YEAR -->
+
+        <div class="exchange-level-card"
+             onclick="selectExchange(
+                '1 Year Old Bulb Exchange',
+                499,
+                this
+             )">
+
+
+            <div class="exchange-left">
+
+                <span class="level-number">
+                    01
+                </span>
+
+
+                <div class="exchange-icon">
+                    🐣
+                </div>
+
+            </div>
+
+
+
+            <div class="exchange-info">
+
+                <h3>
+                    1 Year Old Bulb
+                </h3>
+
+
+                <p>
+                    Still young enough to glow.
+                </p>
+
+            </div>
+
+
+
+            <div class="exchange-price">
+
+                <strong>
+                    ₹499
+                </strong>
+
+
+                <button type="button"
+                        onclick="
+                            event.stopPropagation();
+                            selectExchange(
+                                '1 Year Old Bulb Exchange',
+                                499,
+                                this.parentElement.parentElement
+                            );
+                        ">
+
+                    Select
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- 2 YEARS -->
+
+        <div class="exchange-level-card"
+             onclick="selectExchange(
+                '2 Year Old Bulb Exchange',
+                399,
+                this
+             )">
+
+
+            <div class="exchange-left">
+
+                <span class="level-number">
+                    02
+                </span>
+
+
+                <div class="exchange-icon">
+                    ⚡
+                </div>
+
+            </div>
+
+
+
+            <div class="exchange-info">
+
+                <h3>
+                    2 Year Old Bulb
+                </h3>
+
+
+                <p>
+                    Experienced. Slightly tired. Still useful.
+                </p>
+
+            </div>
+
+
+
+            <div class="exchange-price">
+
+                <strong>
+                    ₹399
+                </strong>
+
+
+                <button type="button"
+                        onclick="
+                            event.stopPropagation();
+                            selectExchange(
+                                '2 Year Old Bulb Exchange',
+                                399,
+                                this.parentElement.parentElement
+                            );
+                        ">
+
+                    Select
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- 2+ YEARS -->
+
+        <div class="exchange-level-card"
+             onclick="selectExchange(
+                '2+ Year Old Bulb Exchange',
+                299,
+                this
+             )">
+
+
+            <div class="exchange-left">
+
+                <span class="level-number">
+                    03
+                </span>
+
+
+                <div class="exchange-icon">
+                    👴
+                </div>
+
+            </div>
+
+
+
+            <div class="exchange-info">
+
+                <h3>
+                    2+ Year Old Bulb
+                </h3>
+
+
+                <p>
+                    Ancient technology. Legendary history.
+                </p>
+
+            </div>
+
+
+
+            <div class="exchange-price">
+
+                <strong>
+                    ₹299
+                </strong>
+
+
+                <button type="button"
+                        onclick="
+                            event.stopPropagation();
+                            selectExchange(
+                                '2+ Year Old Bulb Exchange',
+                                299,
+                                this.parentElement.parentElement
+                            );
+                        ">
+
+                    Select
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         SELECTED EXCHANGE
+    ================================================= -->
+
+    <div class="selected-service">
+
+
+        <div class="selected-info">
+
+            <p>
+                YOUR SELECTION
+            </p>
+
+
+            <h3 id="exchangeSelectedService">
+
+                No exchange selected
+
+            </h3>
+
+        </div>
+
+
+
+        <div class="selected-price">
+
+            <span>
+                Total
+            </span>
+
+
+            <h2 id="exchangeSelectedPrice">
+
+                ₹0
+
+            </h2>
+
+        </div>
+
+
+
+        <button id="exchangeContinueButton"
+                onclick="continueExchangeToPayment()"
+                disabled>
+
+            Confirm & Continue →
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PAYMENT SCREEN
+===================================================== -->
+
+<section id="paymentScreen"
+         class="service-screen hidden">
+
+
+    <button class="back-button"
+            onclick="backFromPayment()">
+
+        ← Back
+
+    </button>
+
+
+
+    <div class="payment-box">
+
+
+        <p class="section-small-title">
+
+            💳 FLYBULB PAYMENT
+
+        </p>
+
+
+        <h2>
+
+            Ready to
+            <span style="color:#ffd34d;">
+                Glow?
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Your firefly is one step away
+            from its brand-new glow.
+
+        </p>
+
+
+
+        <!-- PAYMENT SUMMARY -->
+
+        <div class="payment-summary">
+
+
+            <div>
+
+                <span>
+                    SELECTED SERVICE
+                </span>
+
+
+                <h3 id="paymentService">
+
+                    No service selected
+
+                </h3>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    TOTAL
+                </span>
+
+
+                <h2 id="paymentPrice">
+
+                    ₹0
+
+                </h2>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PAYMENT BUTTON -->
+
+        <button class="payment-button"
+                onclick="makePayment()">
+
+            Pay Now ✨
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     BEAUTIFUL PAYMENT SUCCESS MODAL
+===================================================== -->
+
+<div id="successModal"
+     class="success-modal">
+
+
+    <div class="success-backdrop"
+         onclick="closeSuccessModal()">
+    </div>
+
+
+    <div class="success-card">
+
+
+        <button class="success-close"
+                onclick="closeSuccessModal()">
+
+            ×
+
+        </button>
+
+
+        <div class="success-glow">
+
+            ✨
+
+        </div>
+
+
+        <div class="success-check">
+
+            ✓
+
+        </div>
+
+
+        <p class="success-small">
+
+            FLYBULB PAYMENT
+
+        </p>
+
+
+        <h2>
+
+            Payment Successful!
+
+        </h2>
+
+
+        <p class="success-message">
+
+            Your little firefly is ready
+            for a brand-new glow. 💡✨
+
+        </p>
+
+
+
+        <!-- SUCCESS DETAILS -->
+
+        <div class="success-details">
+
+
+            <div>
+
+                <span>
+                    SERVICE
+                </span>
+
+                <strong id="successService">
+                    Bulb Service
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    AMOUNT
+                </span>
+
+                <strong id="successAmount">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <button class="success-button"
+                onclick="closeSuccessModal()">
+
+            Back to FLYBULB ✨
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <h2>
+
+        FLYBULB<span>™</span>
+
+    </h2>
+
+
+    <p>
+
+        Making fireflies brighter,
+        one completely unnecessary bulb at a time.
+
+    </p>
+
+
+    <p class="copyright">
+
+        © 2026 FLYBULB.
+        All rights reserved.
+
+    </p>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
+```
