@@ -42,7 +42,7 @@ registerForm.addEventListener("submit", function (event) {
 
     if (name === "") {
 
-        alert("🪲 Please enter your name.");
+        alert("Please enter your name!");
 
         return;
     }
@@ -50,7 +50,7 @@ registerForm.addEventListener("submit", function (event) {
 
     if (email === "") {
 
-        alert("✨ Please enter your email address.");
+        alert("Please enter your email address!");
 
         return;
     }
@@ -58,7 +58,7 @@ registerForm.addEventListener("submit", function (event) {
 
     if (password.length < 6) {
 
-        alert("🔐 Your glow code must contain at least 6 characters.");
+        alert("Your glow code must contain at least 6 characters!");
 
         return;
     }
@@ -66,7 +66,7 @@ registerForm.addEventListener("submit", function (event) {
 
     if (password !== confirmPassword) {
 
-        alert("💡 Your glow codes don't match!");
+        alert("Your glow codes don't match!");
 
         return;
     }
@@ -74,7 +74,7 @@ registerForm.addEventListener("submit", function (event) {
 
     if (fireflyName === "") {
 
-        alert("🪲 Your firefly needs a name!");
+        alert("Your firefly needs a name!");
 
         return;
     }
@@ -82,7 +82,7 @@ registerForm.addEventListener("submit", function (event) {
 
     if (!glowPolicy) {
 
-        alert("✨ Please agree to the FLYBULB™ Glow Policy.");
+        alert("Please agree to the FLYBULB™ Glow Policy.");
 
         return;
     }

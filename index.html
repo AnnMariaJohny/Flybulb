@@ -12,112 +12,114 @@
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+<!-- ================= NAVBAR ================= -->
 
-    <header class="navbar">
+<header class="navbar">
 
-        <div class="logo-section">
+    <div class="logo-section">
 
-            <!-- Firefly Video Logo -->
-            <div class="logo-video">
-                <video autoplay muted loop playsinline>
-                    <source src="assets/firefly-welcome.mp4" type="video/mp4">
-                    Your browser does not support video.
-                </video>
-            </div>
+        <div class="logo-image">
+            <img src="assets/firefly-logo.png" alt="FLYBULB Firefly Logo">
+        </div>
 
-            <div>
-                <h1>FLYBULB<span>™</span></h1>
-                <p>Professional Firefly Illumination Services</p>
-            </div>
+        <div class="logo-text">
+            <h1>FLYBULB<span>™</span></h1>
+            <p>Professional Firefly Illumination Services</p>
+        </div>
+
+    </div>
+
+
+    <!-- Navigation -->
+    <nav>
+
+        <a href="index.html" class="active">
+            Home
+        </a>
+
+        <a href="services.html">
+            Services
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="login.html" class="login-btn">
+            Login
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO SECTION ================= -->
+
+<main class="hero">
+
+    <div class="hero-firefly">
+
+    <video
+        id="welcomeVideo"
+        controls
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        width="500"
+        height="400"
+    >
+        <source src="./assets/firefly-welcome.mp4" type="video/mp4">
+
+        Your browser cannot play this video.
+    </video>
+
+</div>
+
+    <!-- Hero Text -->
+    <div class="hero-content">
+
+        <p class="small-heading">
+            ✨ Welcome to FLYBULB™ ✨
+        </p>
+
+        <h2>
+            Is your firefly's<br>
+            light feeling a little...
+        </h2>
+
+        <h3>
+            DIM?
+        </h3>
+
+        <p class="tagline">
+            Give your little glowbug the
+            <strong>LIGHT IT DESERVES!!</strong> ✨
+        </p>
+
+
+        <!-- Login / Register -->
+        <div class="hero-buttons">
+
+            <a href="login.html" class="btn primary-btn">
+                Login →
+            </a>
+
+            <a href="register.html" class="btn secondary-btn">
+                Register
+            </a>
 
         </div>
 
+    </div>
 
-        <!-- Navigation -->
-        <nav>
-
-            <a href="index.html" class="active">
-                Home
-            </a>
-
-            <a href="services.html">
-                Services
-            </a>
-
-            <a href="about.html">
-                About
-            </a>
-
-            <a href="contact.html">
-                Contact
-            </a>
-
-            <a href="login.html" class="login-btn">
-                ♙ Login
-            </a>
-
-        </nav>
-
-    </header>
-
-
-    <!-- ================= HERO SECTION ================= -->
-
-    <main class="hero">
-
-        <!-- Main Firefly Animation -->
-        <div class="hero-firefly">
-
-            <video autoplay muted loop playsinline>
-                <source src="assets/firefly-welcome.mp4" type="video/mp4">
-                Your browser does not support video.
-            </video>
-
-        </div>
-
-
-        <!-- Hero Text -->
-        <div class="hero-content">
-
-            <p class="small-heading">
-                ✨ Welcome to FLYBULB™ ✨
-            </p>
-
-
-            <h2>
-                Is your firefly's<br>
-                light feeling a little...
-            </h2>
-
-
-            <h3>
-                DIM?
-            </h3>
-
-
-            <p class="tagline">
-                Give your little glowbug the
-                <strong>LIGHT IT DESERVES!!</strong> ✨
-            </p>
-
-
-            <!-- Login / Register -->
-            <div class="hero-buttons">
-
-                <a href="login.html" class="btn primary-btn">
-                    Login →
-                </a>
-
-                <a href="register.html" class="btn secondary-btn">
-                    Register
-                </a>
-
-            </div>
-
-        </div>
-
-    </main>
+</main>
 
 
     <!-- ================= SERVICES PREVIEW ================= -->
