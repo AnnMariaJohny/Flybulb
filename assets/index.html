@@ -24,6 +24,11 @@
 
     ===================================================== -->
 
+    <div id="authToast" class="auth-toast" role="status" aria-live="polite">
+        <span class="auth-toast-icon" aria-hidden="true">✓</span>
+        <span id="authToastMessage"></span>
+    </div>
+
     <nav class="navbar">
 
         <div class="navbar-logo">FLYBULB™</div>
@@ -930,6 +935,34 @@
 
     }
 
+    .auth-toast {
+        position: fixed;
+        z-index: 10000;
+        top: 28px;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: min(420px, calc(100% - 32px));
+        padding: 16px 19px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 16px;
+        background: rgba(8, 35, 61, 0.96);
+        box-shadow: 0 16px 42px rgba(0, 0, 0, 0.3), 0 0 28px rgba(255, 214, 77, 0.2);
+        color: #fff;
+        font: 600 14px/1.4 "Poppins", "Segoe UI", sans-serif;
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -24px) scale(0.96);
+        transition: opacity 220ms ease, transform 220ms ease;
+    }
+
+    .auth-toast.visible { opacity: 1; transform: translate(-50%, 0) scale(1); }
+    .auth-toast-icon {
+        display: grid; flex: 0 0 30px; width: 30px; height: 30px; place-items: center;
+        border-radius: 50%; background: #f7d34d; color: #08233d; font-size: 17px; font-weight: 900;
+    }
+    .auth-toast.error .auth-toast-icon { background: #ff7c7c; color: #601717; }
 </style>
 
 <!-- =====================================================
@@ -1756,6 +1789,21 @@
             window.scrollTo(0, 0);
         }
 
+        let toastTimer;
+
+        function showToast(message, type = "success") {
+            const toast = document.getElementById("authToast");
+            const toastMessage = document.getElementById("authToastMessage");
+            const toastIcon = toast.querySelector(".auth-toast-icon");
+
+            clearTimeout(toastTimer);
+            toast.classList.toggle("error", type === "error");
+            toastIcon.textContent = type === "error" ? "!" : "✓";
+            toastMessage.textContent = message;
+            toast.classList.add("visible");
+            toastTimer = setTimeout(() => toast.classList.remove("visible"), 3600);
+        }
+
         function registerUser() {
             const name = document.getElementById("registerName").value.trim();
             const id = document.getElementById("registerId").value.trim();
@@ -1763,7 +1811,7 @@
             const password = document.getElementById("registerPassword").value.trim();
 
             if (!name || !id || !email || !password) {
-                alert("Please complete all registration fields.");
+                showToast("Please complete all registration fields.", "error");
                 return;
             }
 
@@ -1777,8 +1825,8 @@
             document.getElementById("loginName").value = name;
             document.getElementById("loginId").value = id;
             document.getElementById("loginPassword").value = "";
-            alert("Account created successfully. Please log in.");
             showLogin();
+            showToast("Account created! Your details are ready to log in.");
         }
 
         function loginUser() {
@@ -1787,14 +1835,14 @@
             const password = document.getElementById("loginPassword").value.trim();
 
             if (!name || !id || !password) {
-                alert("Please enter your name, ID, and password.");
+                showToast("Please enter your name, ID, and password.", "error");
                 return;
             }
 
             const savedAccount = JSON.parse(localStorage.getItem("flybulbAccount") || "null");
 
             if (savedAccount && (savedAccount.id !== id || savedAccount.password !== password)) {
-                alert("The ID or password does not match your account.");
+                showToast("That ID or password does not match your account.", "error");
                 return;
             }
 
@@ -1803,6 +1851,7 @@
             hideAllPages();
             websitePage.classList.remove("hidden");
             window.scrollTo(0, 0);
+            showToast(`Welcome back, ${name}! Your fireflies are ready to glow.`);
         }
 
         function logoutUser() {
