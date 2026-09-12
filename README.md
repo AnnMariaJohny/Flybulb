@@ -2,7 +2,7 @@
 
 
 
-# FLYBULB™ 🎯
+# FLYBULB™ 
 
 
 ## Basic Details
@@ -46,9 +46,6 @@ For Software:
 - **Git & GitHub** - Version control and project collaboration
 - **MP4 Video Assets** - Firefly animations and visual elements
 - **PNG Image Assets** - FLYBULB™ branding and firefly logo
-
-### Implementation
-**For Software:**
 
 # Installation
 
