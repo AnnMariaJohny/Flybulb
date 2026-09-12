@@ -126,13 +126,13 @@ links to its own page.
 For Software:
 
 # Screenshots (Add at least 3)
-![Welcome Page](screenshots/welcome.png)
+![Welcome Page](screenshots/welcome.jpeg)
 *The welcome page serves as the entry point to FLYBULB™. It introduces the platform and allows users to proceed to either Login or Register.*
 
-![Login Page](screenshots/login.png)
+![Login Page](screenshots/login.jpeg)
 *The login page allows existing users to access their FLYBULB™ account using their registered credentials.*
 
-![Register Page](screenshots/register.png)
+![Register Page](screenshots/register.jpeg)
 *The registration page allows new users to create a FLYBULB™ account by entering their required details and providing their Firefly's name.*
 
 ### Project Demo
