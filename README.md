@@ -48,12 +48,77 @@ For Software:
 - **PNG Image Assets** - FLYBULB™ branding and firefly logo
 
 ### Implementation
-For Software:
+**For Software:**
+
 # Installation
-[commands]
+
+There is nothing to install — the project has no dependencies. Just clone the
+repository:
+
+```bash
+git clone https://github.com/evarose22007-sketch/FlyBug_EvAnn.git
+cd FlyBug_EvAnn
+```
 
 # Run
-[commands]
+
+Open the entry page in any modern browser:
+
+```bash
+# macOS
+open assets/index.html
+
+# Windows
+start assets\index.html
+
+# Linux
+xdg-open assets/index.html
+```
+
+Or run a small local server, which is the more reliable option because the
+welcome video and the saved-account features behave better on a real origin:
+
+```bash
+python3 -m http.server 8000
+# then open http://localhost:8000/assets/index.html
+```
+
+**First run:** click **Register**, create an account, then log in with the same
+name, ID and password. Accounts are stored in your own browser only — nothing is
+uploaded anywhere.
+
+### Project Structure
+
+```
+FlyBug_EvAnn/
+├── assets/
+│   ├── index.html              welcome, register, login and services dashboard
+│   ├── style.css               shared styling for every page
+│   ├── logo.png                FLYBULB™ firefly logo
+│   └── firefly-welcome.mp4     animated firefly on the welcome screen
+├── Bulbreplacement/
+│   └── index.html              bulb replacement service
+├── brightnessadjustment/
+│   └── index.html              brightness adjustment service
+├── colourchange/
+│   └── index.html              colour change service
+├── about.html                  about the project
+└── README.md
+```
+
+### How it works
+
+`assets/index.html` holds four screens — welcome, register, login and the
+services dashboard — as separate `<section>` elements. JavaScript shows one at a
+time by adding and removing a `hidden` class, so the whole account flow happens
+without a page reload.
+
+Registration saves the account to `localStorage` under `flybulbAccount`. Logging
+in checks the entered ID and password against that saved account, greets the
+user by name on the dashboard, and unlocks the three service cards. Each card
+links to its own page.
+
+---
 
 ### Project Documentation
 For Software:
@@ -67,19 +132,6 @@ For Software:
 
 ![Screenshot3](Add screenshot 3 here with proper name)
 *Add caption explaining what this shows*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
-
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
 
 # Build Photos
 ![Components](Add photo of your components here)
@@ -96,15 +148,14 @@ For Hardware:
 [Add your demo video link here]
 *Explain what the video demonstrates*
 
-# Additional Demos
-[Add any extra demo materials/links]
-
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+
+- **Ann Maria Johny:** page structure and HTML across the site, the three service pages, registration and login logic, service navigation.
+- **Eva Rose Nellissery:** visual design and the stylesheet, welcome screen and firefly animations, logo and branding assets, README and documentation.
 
 ---
+
+<div align="center">
 Made with ❤️ at TinkerHub Useless Projects 
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
