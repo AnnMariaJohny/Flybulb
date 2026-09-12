@@ -366,6 +366,6 @@ function goHome() {
        FLYBULB homepage has another name.
     */
 
-    window.location.href = "index.html";
+    window.location.href = "/assets/index.html";
 
 }

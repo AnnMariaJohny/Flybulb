@@ -1778,15 +1778,7 @@
         }
 
         function showWelcome() {
-            hideAllPages();
-            welcomePage.classList.remove("hidden");
-            const welcomeVideo = welcomePage.querySelector(".welcome-video");
-            if (welcomeVideo) {
-                welcomeVideo.play().catch(() => {
-                    // The video remains visible; playback will begin after a browser-approved interaction.
-                });
-            }
-            window.scrollTo(0, 0);
+            window.location.assign("/assets/index.html");
         }
 
         function showServices() {
