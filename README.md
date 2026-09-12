@@ -138,7 +138,7 @@ For Software:
 ### Project Demo
 # Video
 Watch the complete FLYBULB™ website demonstration:
-[Watch FLYBULB™ Demo](video/flybulb-demo-compressed.mp4)
+[Watch FLYBULB™ Demo](flybulb-demo-compressed.mp4)
 *This video demonstrates the main features and user flow of the FLYBULB™ web service, from registration and login to exploring the available services.*
 
 ## Team Contributions
