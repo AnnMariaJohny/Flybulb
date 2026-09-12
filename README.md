@@ -33,7 +33,7 @@ FLYBULB™ provides a fictional online service platform where firefly owners can
 - Change the color of its illumination.
 - Explore different service packages and pricing.
 - Navigate through a complete service-oriented web platform.
-- 
+
 Because apparently, even fireflies deserve premium lighting services.
 
 ## Technical Details
@@ -155,7 +155,6 @@ For Software:
 
 ---
 
-<div align="center">
 Made with ❤️ at TinkerHub Useless Projects 
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
