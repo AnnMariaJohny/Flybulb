@@ -140,6 +140,7 @@ For Software:
 Watch the complete FLYBULB™ website demonstration:
 [Watch FLYBULB™ Demo](video/flybulb-demo-compressed.mp4)
 *This video demonstrates the main features and user flow of the FLYBULB™ web service, from registration and login to exploring the available services.*
+
 ## Team Contributions
 
 - **Ann Maria Johny:** page structure and HTML across the site, the three service pages, registration and login logic, service navigation.
