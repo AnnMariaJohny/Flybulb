@@ -84,6 +84,11 @@ python3 -m http.server 8000
 name, ID and password. Accounts are stored in your own browser only — nothing is
 uploaded anywhere.
 
+### Live Demo
+
+**Visit the deployed website:**  
+[FLYBULB™ on Vercel]([YOUR-VERCEL-LINK](https://flybulb-7eum.vercel.app/))
+
 ### Project Structure
 
 ```
@@ -121,24 +126,14 @@ links to its own page.
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Welcome Page](screenshots/welcome.png)
+*The welcome page serves as the entry point to FLYBULB™. It introduces the platform and allows users to proceed to either Login or Register.*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Login Page](screenshots/login.png)
+*The login page allows existing users to access their FLYBULB™ account using their registered credentials.*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
+![Register Page](screenshots/register.png)
+*The registration page allows new users to create a FLYBULB™ account by entering their required details and providing their Firefly's name.*
 
 ### Project Demo
 # Video
